@@ -1,0 +1,9 @@
+{
+  "name": "escort-functions",
+  "version": "1.0.0",
+  "description": "陪诊员端云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+} 

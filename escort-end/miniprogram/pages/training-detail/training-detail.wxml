@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 培训信息 -->
+  <view class="training-info">
+    <view class="title">{{training.title}}</view>
+    <view class="info-row">
+      <text class="label">培训类型：</text>
+      <text class="value">{{training.type}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">培训时长：</text>
+      <text class="value">{{training.duration}}分钟</text>
+    </view>
+    <view class="info-row">
+      <text class="label">开始时间：</text>
+      <text class="value">{{training.startTime}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">截止时间：</text>
+      <text class="value">{{training.endTime}}</text>
+    </view>
+  </view>
+
+  <!-- 学习进度 -->
+  <view class="progress-section">
+    <view class="section-title">学习进度</view>
+    <view class="progress-bar">
+      <view class="progress" style="width: {{progress}}%"></view>
+    </view>
+    <view class="progress-text">{{progress}}%</view>
+  </view>
+
+  <!-- 章节列表 -->
+  <view class="sections">
+    <view class="section-title">课程章节</view>
+    <view 
+      class="section-item {{currentSection === index ? 'active' : ''}}"
+      wx:for="{{training.sections}}"
+      wx:key="id"
+      bindtap="switchSection"
+      data-index="{{index}}"
+    >
+      <view class="section-header">
+        <text class="section-name">{{item.name}}</text>
+        <text class="duration">{{item.duration}}分钟</text>
+      </view>
+      <view class="section-content" wx:if="{{currentSection === index}}">
+        <video 
+          wx:if="{{item.type === 'video'}}"
+          src="{{item.content}}"
+          autoplay="{{false}}"
+          controls
+        ></video>
+        <rich-text 
+          wx:else
+          nodes="{{item.content}}"
+        ></rich-text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <button 
+      class="exam-btn" 
+      type="primary" 
+      bindtap="startExam"
+      disabled="{{progress < 100}}"
+    >
+      {{progress < 100 ? '请先完成学习' : '开始考试'}}
+    </button>
+  </view>
+</view> 

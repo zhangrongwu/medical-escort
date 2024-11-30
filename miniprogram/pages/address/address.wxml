@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- 地址列表 -->
+  <view class="address-list" wx:if="{{addresses.length > 0}}">
+    <view class="address-item" wx:for="{{addresses}}" wx:key="_id">
+      <view class="info" bindtap="selectAddress" data-id="{{item._id}}">
+        <view class="user-info">
+          <text class="name">{{item.name}}</text>
+          <text class="phone">{{item.phone}}</text>
+          <text class="tag" wx:if="{{item.isDefault}}">默认</text>
+        </view>
+        <view class="address-info">
+          <text>{{item.region[0]}}{{item.region[1]}}{{item.region[2]}}{{item.detail}}</text>
+        </view>
+      </view>
+      <view class="operations">
+        <view class="op-item" bindtap="setDefault" data-id="{{item._id}}" wx:if="{{!item.isDefault}}">
+          <image src="/images/default.png"></image>
+          <text>设为默认</text>
+        </view>
+        <view class="op-item" bindtap="editAddress" data-id="{{item._id}}">
+          <image src="/images/edit.png"></image>
+          <text>编辑</text>
+        </view>
+        <view class="op-item" bindtap="deleteAddress" data-id="{{item._id}}">
+          <image src="/images/delete.png"></image>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <image src="/images/empty-address.png"></image>
+    <text>暂无收货地址</text>
+  </view>
+
+  <!-- 添加按钮 -->
+  <button class="add-btn" type="primary" bindtap="addAddress">
+    <image src="/images/add.png"></image>
+    新增收货地址
+  </button>
+
+  <!-- 微信导入按钮 -->
+  <button class="import-btn" bindtap="importFromWx">
+    <image src="/images/wechat.png"></image>
+    导入微信收货地址
+  </button>
+</view> 

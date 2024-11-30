@@ -1,0 +1,247 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding-bottom: 120rpx;
+}
+
+/* 状态卡片 */
+.status-card {
+  padding: 40rpx;
+  color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.status-card.UNPAID {
+  background: linear-gradient(135deg, #ff4d4f, #ff7875);
+}
+
+.status-card.PAID {
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+}
+
+.status-card.PROCESSING {
+  background: linear-gradient(135deg, #faad14, #ffc53d);
+}
+
+.status-card.FINISHED {
+  background: linear-gradient(135deg, #52c41a, #73d13d);
+}
+
+.status-card.CANCELLED {
+  background: linear-gradient(135deg, #8c8c8c, #bfbfbf);
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.status-text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.order-no {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.status-desc {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+/* 内容区块 */
+.section {
+  background: #fff;
+  margin: 20rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 28rpx;
+  background: var(--primary-color);
+  border-radius: 3rpx;
+}
+
+/* 陪诊员信息 */
+.escort-info {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 20rpx;
+  border-radius: 12rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.phone {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  font-size: 26rpx;
+  color: var(--primary-color);
+  background: rgba(24, 144, 255, 0.1);
+  border-radius: 30rpx;
+  border: none;
+}
+
+.contact-btn .icon {
+  margin-right: 8rpx;
+}
+
+/* 信息列表 */
+.info-list {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  width: 140rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.value {
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.value.remark {
+  color: #666;
+}
+
+/* 服务列表 */
+.service-list {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.service-price {
+  font-size: 28rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #eee;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.price {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+/* 底部按钮 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  transition: all 0.3s;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-default {
+  color: #666;
+  background: #f5f5f5;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  box-shadow: 0 4rpx 12rpx rgba(24, 144, 255, 0.3);
+} 

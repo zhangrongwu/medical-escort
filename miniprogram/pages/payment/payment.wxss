@@ -1,0 +1,164 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+  background: #f6f6f6;
+}
+
+.order-info {
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.price-section {
+  padding: 60rpx 0;
+  text-align: center;
+  background: linear-gradient(to right, #1296db, #36b4e5);
+}
+
+.currency {
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.amount {
+  font-size: 80rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.info-list {
+  padding: 30rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+}
+
+.label {
+  width: 160rpx;
+  color: #666;
+}
+
+.value {
+  flex: 1;
+  color: #333;
+}
+
+.copy {
+  color: #1296db;
+  padding: 4rpx 20rpx;
+  border: 1rpx solid #1296db;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.service-list {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+}
+
+.service-price {
+  color: #ff4d4f;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  margin-top: 20rpx;
+  border-top: 1rpx solid #eee;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.total-price {
+  color: #ff4d4f;
+}
+
+.payment-methods {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.method-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+
+.method-name {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-info {
+  font-size: 28rpx;
+}
+
+.price-info .price {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.pay-btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+
+.countdown {
+  position: fixed;
+  top: 20rpx;
+  right: 20rpx;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}
+
+.countdown .time {
+  color: #ff4d4f;
+} 

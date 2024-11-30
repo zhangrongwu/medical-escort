@@ -1,0 +1,149 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 头部 */
+.header {
+  background: #FFFFFF;
+  padding: 40rpx 30rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.update-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 内容区域 */
+.content {
+  padding: 30rpx;
+}
+
+.section {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #1890FF;
+}
+
+.paragraph {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+  margin-bottom: 20rpx;
+}
+
+.list-item {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+  padding-left: 40rpx;
+  position: relative;
+}
+
+.list-item::before {
+  content: '•';
+  position: absolute;
+  left: 20rpx;
+  color: #1890FF;
+}
+
+/* 重要提示 */
+.important {
+  background: #FFF7E6;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+
+.important-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #FAAD14;
+  margin-bottom: 12rpx;
+}
+
+.important-content {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* 底部 */
+.footer {
+  text-align: center;
+  padding: 40rpx 30rpx;
+  background: #FFFFFF;
+  margin-top: 40rpx;
+}
+
+.footer text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.contact {
+  color: #1890FF;
+  margin-left: 12rpx;
+}
+
+/* 链接样式 */
+.link {
+  color: #1890FF;
+  text-decoration: underline;
+}
+
+/* 强调文本 */
+.highlight {
+  color: #FF4D4F;
+  font-weight: 500;
+}
+
+/* 表格样式 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20rpx 0;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 2rpx solid #F5F7FA;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 20rpx;
+  font-size: 26rpx;
+  color: #666666;
+  text-align: center;
+}
+
+.table-header {
+  background: #F8FAFF;
+  font-weight: 500;
+  color: #333333;
+} 

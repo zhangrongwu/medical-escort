@@ -1,0 +1,127 @@
+<view class="container">
+  <!-- 评价统计 -->
+  <view class="stats-bar">
+    <view class="stat-item">
+      <text class="value">{{stats.totalCount || 0}}</text>
+      <text class="label">总评价</text>
+    </view>
+    <view class="stat-item">
+      <text class="value">{{stats.goodRate || '0%'}}</text>
+      <text class="label">好评率</text>
+    </view>
+    <view class="stat-item">
+      <text class="value">{{stats.avgScore || '0.0'}}</text>
+      <text class="label">平均分</text>
+    </view>
+  </view>
+
+  <!-- 评分分布 -->
+  <view class="rating-distribution">
+    <view class="rating-item" wx:for="{{stats.distribution}}" wx:key="score">
+      <text class="rating-label">{{item.label}}</text>
+      <view class="rating-bar">
+        <view class="rating-progress" style="width: {{item.percentage}}%"></view>
+      </view>
+      <text class="rating-count">{{item.count}}</text>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="evaluation-list">
+    <view class="evaluation-item" wx:for="{{evaluations}}" wx:key="_id">
+      <!-- 用户信息 -->
+      <view class="user-info">
+        <image class="avatar" src="{{item.userInfo.avatar}}"></image>
+        <view class="info-content">
+          <text class="nickname">{{item.userInfo.nickname}}</text>
+          <text class="time">{{item.createTime}}</text>
+        </view>
+        <view class="rating">
+          <image 
+            class="star"
+            wx:for="{{5}}"
+            wx:key="*this"
+            wx:for-item="star"
+            src="{{star <= item.rating ? '/images/star-active.png' : '/images/star.png'}}"
+          ></image>
+        </view>
+      </view>
+
+      <!-- 订单信息 -->
+      <view class="order-info">
+        <text class="hospital">{{item.orderInfo.hospitalName}}</text>
+        <text class="service-type">{{item.orderInfo.serviceType}}</text>
+      </view>
+
+      <!-- 评价内容 -->
+      <view class="comment">{{item.comment}}</view>
+
+      <!-- 评价图片 -->
+      <view class="image-list" wx:if="{{item.images.length > 0}}">
+        <image 
+          class="eval-image" 
+          wx:for="{{item.images}}" 
+          wx:key="*this"
+          wx:for-item="image"
+          src="{{image}}"
+          mode="aspectFill"
+          bindtap="previewImage"
+          data-urls="{{item.images}}"
+          data-current="{{image}}"
+        ></image>
+      </view>
+
+      <!-- 回复区域 -->
+      <view class="reply-box" wx:if="{{item.reply || !item.hasReplied}}">
+        <view class="reply-content" wx:if="{{item.reply}}">
+          <text class="reply-label">回复：</text>
+          <text>{{item.reply}}</text>
+        </view>
+        <button 
+          class="reply-btn"
+          wx:if="{{!item.hasReplied}}"
+          bindtap="showReplyDialog"
+          data-id="{{item._id}}"
+        >回复评价</button>
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty" wx:if="{{!loading && evaluations.length === 0}}">
+      <image class="empty-icon" src="/images/empty-evaluation.png"></image>
+      <text class="empty-text">暂无评价</text>
+    </view>
+  </view>
+</view>
+
+<!-- 回复弹窗 -->
+<view class="reply-dialog {{showReplyDialog ? 'show' : ''}}">
+  <view class="dialog-mask" bindtap="hideReplyDialog"></view>
+  <view class="dialog-content">
+    <view class="dialog-header">
+      <text class="dialog-title">回复评价</text>
+      <view class="close-btn" bindtap="hideReplyDialog">×</view>
+    </view>
+    <textarea 
+      class="reply-textarea"
+      placeholder="请输入回复内容..."
+      maxlength="200"
+      value="{{replyContent}}"
+      bindinput="onReplyInput"
+    ></textarea>
+    <view class="dialog-footer">
+      <text class="word-count">{{replyContent.length}}/200</text>
+      <button 
+        class="submit-btn {{canSubmitReply ? '' : 'disabled'}}"
+        bindtap="submitReply"
+        disabled="{{!canSubmitReply}}"
+      >提交回复</button>
+    </view>
+  </view>
+</view> 

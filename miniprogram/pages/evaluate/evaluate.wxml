@@ -1,0 +1,94 @@
+<view class="container">
+  <!-- 服务信息 -->
+  <view class="service-info">
+    <view class="escort-info">
+      <image class="avatar" src="{{escort.avatar}}"></image>
+      <view class="info">
+        <text class="name">{{escort.name}}</text>
+        <text class="service-time">服务时间：{{order.appointmentDate}} {{order.timeSlot}}</text>
+      </view>
+    </view>
+    <view class="hospital-info">
+      <text class="hospital">{{order.hospitalName}}</text>
+      <text class="department">{{order.departmentName}}</text>
+    </view>
+  </view>
+
+  <!-- 评分项目 -->
+  <view class="rating-section">
+    <view class="rating-item">
+      <text class="label">服务态度</text>
+      <view class="stars">
+        <image 
+          wx:for="{{5}}" 
+          wx:key="*this"
+          src="{{index < ratings.attitude ? '/images/star-active.png' : '/images/star.png'}}"
+          class="star"
+          bindtap="rateAttitude"
+          data-score="{{index + 1}}"
+        ></image>
+      </view>
+    </view>
+    <view class="rating-item">
+      <text class="label">专业水平</text>
+      <view class="stars">
+        <image 
+          wx:for="{{5}}" 
+          wx:key="*this"
+          src="{{index < ratings.professional ? '/images/star-active.png' : '/images/star.png'}}"
+          class="star"
+          bindtap="rateProfessional"
+          data-score="{{index + 1}}"
+        ></image>
+      </view>
+    </view>
+    <view class="rating-item">
+      <text class="label">服务体验</text>
+      <view class="stars">
+        <image 
+          wx:for="{{5}}" 
+          wx:key="*this"
+          src="{{index < ratings.experience ? '/images/star-active.png' : '/images/star.png'}}"
+          class="star"
+          bindtap="rateExperience"
+          data-score="{{index + 1}}"
+        ></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评价内容 -->
+  <view class="comment-section">
+    <textarea 
+      class="comment-input" 
+      placeholder="请输入您的评价内容（最少10个字）" 
+      maxlength="500"
+      bindinput="onCommentInput"
+      value="{{comment}}"
+    ></textarea>
+    <view class="word-count">{{comment.length}}/500</view>
+  </view>
+
+  <!-- 图片上传 -->
+  <view class="upload-section">
+    <view class="upload-title">上传图片（选填）</view>
+    <view class="image-list">
+      <view class="image-item" wx:for="{{images}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" bindtap="previewImage" data-url="{{item}}"></image>
+        <icon class="delete-icon" type="clear" size="20" bindtap="deleteImage" data-index="{{index}}"></icon>
+      </view>
+      <view class="upload-btn" bindtap="chooseImage" wx:if="{{images.length < 4}}">
+        <text class="plus">+</text>
+        <text class="tip">添加图片</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 匿名选项 -->
+  <view class="anonymous-section">
+    <text>匿名评价</text>
+    <switch checked="{{isAnonymous}}" bindchange="toggleAnonymous"></switch>
+  </view>
+
+  <button class="submit-btn" type="primary" bindtap="submitEvaluation">提交评价</button>
+</view> 

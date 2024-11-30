@@ -1,0 +1,293 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding: 30rpx;
+  padding-bottom: calc(30rpx + env(safe-area-inset-bottom));
+}
+
+/* 提现金额 */
+.amount-section {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.balance-info {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 40rpx;
+}
+
+.balance-info .label {
+  font-size: 28rpx;
+  color: #666666;
+  margin-right: 16rpx;
+}
+
+.balance-info .balance {
+  font-size: 32rpx;
+  color: #333333;
+  font-family: DIN;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.currency {
+  font-size: 48rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-right: 20rpx;
+}
+
+.amount-input {
+  flex: 1;
+  height: 80rpx;
+  font-size: 48rpx;
+  font-weight: 500;
+  color: #333333;
+  font-family: DIN;
+}
+
+.quick-amount {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quick-btn {
+  display: inline-block;
+  padding: 8rpx 24rpx;
+  background: #F5F7FA;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  color: #666666;
+  transition: all 0.3s ease;
+}
+
+.quick-btn.active {
+  background: #E6F7FF;
+  color: #1890FF;
+}
+
+/* 提现到 */
+.withdraw-to {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.bank-card {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.bank-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 20rpx;
+}
+
+.card-info {
+  flex: 1;
+}
+
+.bank-name {
+  font-size: 30rpx;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.card-number {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.add-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #1890FF;
+  font-size: 28rpx;
+}
+
+.add-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.arrow {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 提现说明 */
+.withdraw-tips {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 60rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.tips-content {
+  color: #666666;
+  font-size: 26rpx;
+  line-height: 1.8;
+}
+
+.tip-item {
+  margin-bottom: 12rpx;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: linear-gradient(135deg, #1890FF 0%, #3CA9FF 100%);
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.submit-btn.disabled {
+  background: #CCCCCC;
+  box-shadow: none;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 8rpx rgba(24, 144, 255, 0.1);
+}
+
+/* 安全提示 */
+.safety-tips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.safety-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+
+/* 确认弹窗 */
+.confirm-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.confirm-dialog.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dialog-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-content {
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 30rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.confirm-dialog.show .dialog-content {
+  transform: translateY(0);
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.dialog-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.close-btn {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999999;
+}
+
+.confirm-info {
+  margin-bottom: 40rpx;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.info-item .label {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.info-item .value {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #1890FF;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+} 

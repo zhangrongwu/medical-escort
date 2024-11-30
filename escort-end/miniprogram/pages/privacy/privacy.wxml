@@ -1,0 +1,73 @@
+<view class="container">
+  <view class="header">
+    <view class="title">隐私政策</view>
+    <view class="update-time">更新时间：2024年01月01日</view>
+  </view>
+
+  <view class="content">
+    <view class="section">
+      <view class="section-title">1. 信息收集</view>
+      <view class="paragraph">
+        我们收集的信息包括但不限于：
+        <view class="list-item">• 基本信息：姓名、性别、手机号等</view>
+        <view class="list-item">• 身份认证信息：身份证、健康证等</view>
+        <view class="list-item">• 位置信息：用于订单匹配和服务</view>
+        <view class="list-item">• 设备信息：设备型号、操作系统等</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">2. 信息使用</view>
+      <view class="paragraph">
+        收集的信息将用于：
+        <view class="list-item">• 提供陪诊服务</view>
+        <view class="list-item">• 订单管理和匹配</view>
+        <view class="list-item">• 安全验证和风控</view>
+        <view class="list-item">• 服务改进和体验优化</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">3. 信息保护</view>
+      <view class="paragraph">
+        我们采取严格的数据保护措施：
+        <view class="list-item">• 数据加密存储</view>
+        <view class="list-item">• 访问权限控制</view>
+        <view class="list-item">• 安全审计机制</view>
+        <view class="list-item">• 应急响应预案</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">4. 信息共享</view>
+      <view class="paragraph">
+        在以下情况下可能共享信息：
+        <view class="list-item">• 获得您的明确授权</view>
+        <view class="list-item">• 法律法规要求</view>
+        <view class="list-item">• 维护平台安全</view>
+        <view class="list-item">• 保护用户权益</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">5. 您的权利</view>
+      <view class="paragraph">
+        您对个人信息拥有：
+        <view class="list-item">• 访问和查看权</view>
+        <view class="list-item">• 更正和修改权</view>
+        <view class="list-item">• 删除和注销权</view>
+        <view class="list-item">• 撤回授权权</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">6. 联系我们</view>
+      <view class="paragraph">
+        如有任何问题，请联系：
+        <view class="list-item">• 客服电话：400-888-8888</view>
+        <view class="list-item">• 电子邮箱：privacy@mediguide.com</view>
+        <view class="list-item">• 工作时间：周一至周日 9:00-21:00</view>
+      </view>
+    </view>
+  </view>
+</view> 

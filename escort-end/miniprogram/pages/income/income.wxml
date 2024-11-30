@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 收入概览 -->
+  <view class="income-overview">
+    <view class="total-section">
+      <text class="label">总收入(元)</text>
+      <text class="amount">{{stats.totalIncome || '0.00'}}</text>
+    </view>
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="value">{{stats.monthIncome || '0.00'}}</text>
+        <text class="label">本月收入</text>
+      </view>
+      <view class="stat-item">
+        <text class="value">{{stats.orderCount || 0}}</text>
+        <text class="label">完成订单</text>
+      </view>
+      <view class="stat-item">
+        <text class="value">{{stats.balance || '0.00'}}</text>
+        <text class="label">可提现</text>
+      </view>
+    </view>
+    <button class="withdraw-btn" bindtap="handleWithdraw">立即提现</button>
+  </view>
+
+  <!-- 时间筛选 -->
+  <view class="filter-section">
+    <picker 
+      mode="date" 
+      fields="month" 
+      value="{{currentDate}}"
+      bindchange="onDateChange"
+    >
+      <view class="date-picker">
+        <text>{{currentDate}}</text>
+        <image class="icon" src="/images/calendar.png"></image>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 收入明细列表 -->
+  <view class="income-list">
+    <view class="list-header">
+      <text class="title">收入明细</text>
+      <text class="count">({{incomeList.length}}笔)</text>
+    </view>
+
+    <view 
+      class="income-item"
+      wx:for="{{incomeList}}"
+      wx:key="_id"
+      bindtap="viewOrderDetail"
+      data-id="{{item.orderId}}"
+    >
+      <view class="item-main">
+        <view class="order-info">
+          <text class="type">{{item.serviceType}}</text>
+          <text class="time">{{item.createTime}}</text>
+        </view>
+        <view class="hospital">{{item.hospitalName}}</view>
+        <view class="patient">就诊人：{{item.patientName}}</view>
+      </view>
+      <view class="item-amount {{item.settlementStatus === 'PENDING' ? 'pending' : ''}}">
+        <text class="amount">+{{item.amount}}</text>
+        <text class="status">{{item.settlementStatus === 'PENDING' ? '待结算' : '已结算'}}</text>
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty" wx:if="{{!loading && incomeList.length === 0}}">
+      <image class="empty-icon" src="/images/empty-income.png"></image>
+      <text class="empty-text">暂无收入记录</text>
+    </view>
+  </view>
+</view> 

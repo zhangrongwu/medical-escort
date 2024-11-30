@@ -1,0 +1,9 @@
+{
+  "name": "paymentCallback",
+  "version": "1.0.0",
+  "description": "支付回调处理",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+} 

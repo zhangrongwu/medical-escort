@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="form-group">
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input 
+        class="input" 
+        value="{{patient.name}}" 
+        placeholder="请输入就医人姓名"
+        bindinput="setName"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker 
+        mode="selector" 
+        range="{{['男', '女']}}" 
+        value="{{patient.gender === '男' ? 0 : 1}}"
+        bindchange="setGender"
+      >
+        <view class="picker">{{patient.gender || '请选择性别'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">身份证号</text>
+      <input 
+        class="input" 
+        type="idcard" 
+        value="{{patient.idCard}}" 
+        placeholder="请输入身份证号"
+        bindinput="setIdCard"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">手机号</text>
+      <input 
+        class="input" 
+        type="number" 
+        value="{{patient.phone}}" 
+        placeholder="请输入手机号"
+        bindinput="setPhone"
+      />
+    </view>
+  </view>
+
+  <button class="save-btn" type="primary" bindtap="savePatient">保存</button>
+</view> 

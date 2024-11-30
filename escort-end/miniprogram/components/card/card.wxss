@@ -1,0 +1,34 @@
+.card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rpx;
+  background: var(--primary-gradient);
+}
+
+.card-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.card-title .icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+} 

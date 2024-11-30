@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="logo-section">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="app-name">医疗陪诊</text>
+    <text class="version">版本 1.0.0</text>
+  </view>
+
+  <view class="content-section">
+    <view class="section-title">关于我们</view>
+    <view class="section-content">
+      医疗陪诊小程序致力于为患者提供专业、贴心的陪诊服务。我们的陪诊人员均经过严格筛选和专业培训，确保为您提供优质的陪诊体验。
+    </view>
+
+    <view class="section-title">联系我们</view>
+    <view class="contact-list">
+      <view class="contact-item" bindtap="copyText" data-text="0571-88888888">
+        <text class="label">客服电话：</text>
+        <text class="value">0571-88888888</text>
+        <text class="copy">复制</text>
+      </view>
+      <view class="contact-item" bindtap="copyText" data-text="service@medical-escort.com">
+        <text class="label">客服邮箱：</text>
+        <text class="value">service@medical-escort.com</text>
+        <text class="copy">复制</text>
+      </view>
+      <view class="contact-item">
+        <text class="label">工作时间：</text>
+        <text class="value">周一至周日 8:00-20:00</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text>Copyright © 2024 医疗陪诊</text>
+    <text>All Rights Reserved</text>
+  </view>
+</view> 

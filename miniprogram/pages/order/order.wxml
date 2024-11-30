@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 标签栏 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{['全部', '待付款', '进行中', '已完成']}}" 
+      wx:key="*this"
+      bindtap="switchTab"
+      data-tab="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view class="order-item" wx:for="{{orderList}}" wx:key="_id">
+      <view class="order-header">
+        <text class="order-no">订单号：{{item.orderNo}}</text>
+        <text class="status {{item.status}}">{{item.statusText}}</text>
+      </view>
+
+      <view class="order-content" bindtap="navigateToDetail" data-id="{{item._id}}">
+        <view class="service-info">
+          <text class="hospital">{{item.hospitalName}}</text>
+          <text class="department">{{item.departmentName}}</text>
+          <text class="time">{{item.appointmentDate}} {{item.timeSlot}}</text>
+        </view>
+
+        <view class="escort-info">
+          <image class="avatar" src="{{item.escortInfo.avatar}}" mode="aspectFill"></image>
+          <text class="name">{{item.escortInfo.name}}</text>
+        </view>
+
+        <view class="service-list">
+          <text class="service-item" wx:for="{{item.services}}" wx:key="id" wx:for-item="service">
+            {{service.name}}
+          </text>
+        </view>
+      </view>
+
+      <view class="order-footer">
+        <view class="price">
+          <text>实付款：</text>
+          <text class="amount">¥{{item.totalPrice}}</text>
+        </view>
+        
+        <view class="actions">
+          <block wx:if="{{item.status === 'UNPAID'}}">
+            <button 
+              class="action-btn cancel" 
+              size="mini" 
+              bindtap="cancelOrder" 
+              data-id="{{item._id}}"
+            >取消订单</button>
+            <button 
+              class="action-btn pay" 
+              size="mini" 
+              bindtap="payOrder" 
+              data-id="{{item._id}}"
+            >立即支付</button>
+          </block>
+          <block wx:elif="{{item.status === 'FINISHED'}}">
+            <button 
+              class="action-btn evaluate" 
+              size="mini" 
+              bindtap="evaluateOrder" 
+              data-id="{{item._id}}"
+              wx:if="{{!item.isEvaluated}}"
+            >评价</button>
+            <button 
+              class="action-btn delete" 
+              size="mini" 
+              bindtap="deleteOrder" 
+              data-id="{{item._id}}"
+            >删除</button>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{orderList.length === 0}}">
+    <image src="/images/empty.png"></image>
+    <text>暂无订单记录</text>
+  </view>
+</view> 

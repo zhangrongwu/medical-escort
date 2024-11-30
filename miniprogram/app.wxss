@@ -1,0 +1,262 @@
+@font-face {
+  font-family: 'medical-icons';
+  src: url('data:application/x-font-woff2;charset=utf-8;base64,...') format('woff2');
+}
+
+.icon {
+  font-family: "medical-icons" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 服务类型图标 */
+.icon-hospital:before { content: "\e900"; }
+.icon-emergency:before { content: "\e901"; }
+.icon-care:before { content: "\e902"; }
+.icon-elderly:before { content: "\e903"; }
+
+/* 导航图标 */
+.icon-home:before { content: "\e904"; }
+.icon-appointment:before { content: "\e905"; }
+.icon-order:before { content: "\e906"; }
+.icon-user:before { content: "\e907"; }
+
+/* 功能图标 */
+.icon-search:before { content: "\e908"; }
+.icon-location:before { content: "\e909"; }
+.icon-phone:before { content: "\e90a"; }
+.icon-edit:before { content: "\e90b"; }
+.icon-delete:before { content: "\e90c"; }
+.icon-add:before { content: "\e90d"; }
+.icon-arrow-right:before { content: "\e90e"; }
+.icon-star:before { content: "\e90f"; }
+.icon-star-filled:before { content: "\e910"; }
+
+/* 其他图标 */
+.icon-feedback:before { content: "\e911"; }
+.icon-about:before { content: "\e912"; }
+.icon-logout:before { content: "\e913"; }
+.icon-service:before { content: "\e914"; }
+.icon-profile:before { content: "\e915"; }
+.icon-patient:before { content: "\e916"; }
+.icon-address:before { content: "\e917"; }
+
+page {
+  --primary-color: #1890ff;
+  --primary-gradient: linear-gradient(135deg, #1890ff, #36cfc9);
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --danger-color: #ff4d4f;
+  --text-main: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --border-color: #f0f0f0;
+  --bg-color: #f7f8fa;
+  --card-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  color: var(--text-main);
+  background: var(--bg-color);
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.container {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 通用表单样式 */
+.form-group {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--border-color);
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: var(--text-color);
+}
+
+.input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+/* 通用按钮样式 */
+.btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 44rpx;
+  transition: var(--transition);
+}
+
+.btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--primary-gradient);
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+}
+
+.btn-outline {
+  color: var(--primary-color);
+  border: 2rpx solid var(--primary-color);
+  background: rgba(24, 144, 255, 0.1);
+}
+
+/* 通用输入框样式 */
+.input {
+  height: 88rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: var(--text-main);
+  background: #f8f9fa;
+  border-radius: 44rpx;
+  box-shadow: inset 0 2rpx 8rpx rgba(0, 0, 0, 0.02);
+}
+
+/* 通用标签样式 */
+.tag {
+  display: inline-block;
+  padding: 6rpx 20rpx;
+  font-size: 24rpx;
+  border-radius: 20rpx;
+}
+
+.tag-primary {
+  color: var(--primary-color);
+  background: rgba(24, 144, 255, 0.1);
+}
+
+.tag-success {
+  color: var(--success-color);
+  background: rgba(82, 196, 26, 0.1);
+}
+
+.tag-warning {
+  color: var(--warning-color);
+  background: rgba(250, 173, 20, 0.1);
+}
+
+.tag-danger {
+  color: var(--danger-color);
+  background: rgba(255, 77, 79, 0.1);
+}
+
+/* 通用列表样式 */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  transition: var(--transition);
+}
+
+.list-item:active {
+  transform: scale(0.98);
+  background: #f8f9fa;
+}
+
+/* 通用加载状态 */
+.loading {
+  text-align: center;
+  padding: 30rpx;
+  color: var(--text-light);
+}
+
+/* 通用空状态 */
+.empty {
+  text-align: center;
+  padding: 60rpx 30rpx;
+}
+
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: var(--text-light);
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  margin: 30rpx;
+  box-shadow: var(--card-shadow);
+}
+
+/* 通用标题样式 */
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: var(--text-main);
+  margin-bottom: 30rpx;
+  position: relative;
+  padding-left: 24rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 32rpx;
+  background: var(--primary-gradient);
+  border-radius: 4rpx;
+}
+
+/* 通用加载更多样式 */
+.loading-more {
+  text-align: center;
+  padding: 20rpx 0;
+  color: var(--text-color-light);
+  font-size: 24rpx;
+}
+
+/* 通用空状态样式 */
+.empty-state {
+  text-align: center;
+  padding: 60rpx 0;
+}
+
+.empty-state image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-state text {
+  color: var(--text-color-light);
+  font-size: 26rpx;
+} 

@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="status-card">
+    <!-- 审核中 -->
+    <block wx:if="{{status === 'PENDING'}}">
+      <image class="status-icon" src="/images/pending.png"></image>
+      <view class="status-title">审核中</view>
+      <view class="status-desc">您的注册信息正在审核，请耐心等待</view>
+      <view class="status-tips">预计1-2个工作日内完成审核</view>
+    </block>
+
+    <!-- 审核通过 -->
+    <block wx:if="{{status === 'ACTIVE'}}">
+      <image class="status-icon" src="/images/success.png"></image>
+      <view class="status-title">审核通过</view>
+      <view class="status-desc">恭喜您成为陪诊员</view>
+      <button class="primary-btn" bindtap="goToHome">进入工作台</button>
+    </block>
+
+    <!-- 审核拒绝 -->
+    <block wx:if="{{status === 'REJECTED'}}">
+      <image class="status-icon" src="/images/rejected.png"></image>
+      <view class="status-title">审核未通过</view>
+      <view class="status-desc">{{escortInfo.rejectReason || '资料不符合要求'}}</view>
+      <button class="primary-btn" bindtap="goToModify">返回修改</button>
+    </block>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-btns">
+    <button class="service-btn" bindtap="contactService">
+      <text class="icon icon-service"></text>
+      <text>联系客服</text>
+    </button>
+  </view>
+</view> 

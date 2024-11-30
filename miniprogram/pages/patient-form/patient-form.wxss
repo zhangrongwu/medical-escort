@@ -1,0 +1,44 @@
+.container {
+  padding: 30rpx;
+  background: #f6f6f6;
+  min-height: 100vh;
+}
+
+.form-group {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.picker {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.save-btn {
+  margin-top: 40rpx;
+  width: 90%;
+} 

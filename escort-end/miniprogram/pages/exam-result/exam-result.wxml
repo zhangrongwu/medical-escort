@@ -1,0 +1,40 @@
+<view class="container">
+  <!-- 结果展示 -->
+  <view class="result-card">
+    <image 
+      class="result-icon" 
+      src="{{passed ? '/images/pass.png' : '/images/fail.png'}}"
+    ></image>
+    <text class="result-text">{{passed ? '考试通过' : '考试未通过'}}</text>
+    <view class="score-box">
+      <text class="score {{passed ? 'pass' : 'fail'}}">{{score}}</text>
+      <text class="unit">分</text>
+    </view>
+    <text class="tip">{{passed ? '恭喜您通过考试！' : '很遗憾，未能通过考试'}}</text>
+  </view>
+
+  <!-- 证书信息 -->
+  <view class="certificate-card" wx:if="{{passed && certificate}}">
+    <view class="card-header">
+      <text class="title">培训证书</text>
+      <text class="status">已获得</text>
+    </view>
+    <view class="card-content">
+      <image class="cert-icon" src="/images/certificate.png"></image>
+      <view class="cert-info">
+        <text class="cert-name">{{certificate.name}}</text>
+        <text class="cert-date">发证日期：{{certificate.issueDate}}</text>
+        <text class="cert-no">证书编号：{{certificate.number}}</text>
+      </view>
+    </view>
+    <button class="view-btn" bindtap="viewCertificate">查看证书</button>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-btns">
+    <block wx:if="{{!passed}}">
+      <button class="retry-btn" bindtap="retakeExam">重新考试</button>
+    </block>
+    <button class="back-btn" bindtap="backToWorkspace">返回工作台</button>
+  </view>
+</view> 

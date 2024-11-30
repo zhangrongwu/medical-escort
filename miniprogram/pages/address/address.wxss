@@ -1,0 +1,127 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: 240rpx;
+  background: #f6f6f6;
+}
+
+.address-list {
+  padding: 20rpx;
+}
+
+.address-item {
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.info {
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.user-info {
+  margin-bottom: 16rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.phone {
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  color: #1296db;
+  background: rgba(18, 150, 219, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.address-info {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.4;
+}
+
+.operations {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30rpx;
+}
+
+.op-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.op-item image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.op-item text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.empty-state image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-state text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 140rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.add-btn image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.import-btn {
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.import-btn image {
+  width: 36rpx;
+  height: 36rpx;
+} 

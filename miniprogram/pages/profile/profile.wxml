@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="form-group">
+    <view class="form-item">
+      <text class="label">头像</text>
+      <view class="avatar-wrapper" bindtap="chooseAvatar">
+        <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}"></image>
+        <text class="tip">点击更换</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">昵称</text>
+      <input 
+        class="input" 
+        value="{{userInfo.nickName}}" 
+        placeholder="请输入昵称"
+        bindinput="onNickNameInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker 
+        mode="selector" 
+        range="{{genderOptions}}" 
+        value="{{genderIndex}}"
+        bindchange="onGenderChange"
+      >
+        <view class="picker">{{genderOptions[genderIndex] || '请选择性别'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">手机号</text>
+      <block wx:if="{{userInfo.phone}}">
+        <text class="phone">{{userInfo.phone}}</text>
+        <text class="change-btn" bindtap="changePhone">更换</text>
+      </block>
+      <block wx:else>
+        <text class="bind-btn" bindtap="bindPhone">去绑定</text>
+      </block>
+    </view>
+
+    <view class="form-item">
+      <text class="label">常用地址</text>
+      <picker 
+        mode="region" 
+        value="{{region}}"
+        bindchange="onRegionChange"
+      >
+        <view class="picker">{{region[0] || '请选择地区'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">详细地址</text>
+      <input 
+        class="input" 
+        value="{{address}}" 
+        placeholder="请输入详细地址"
+        bindinput="onAddressInput"
+      />
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-item">
+      <text class="label">紧急联系人</text>
+      <input 
+        class="input" 
+        value="{{emergencyContact}}" 
+        placeholder="请输入紧急联系人姓名"
+        bindinput="onEmergencyContactInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">联系人电话</text>
+      <input 
+        class="input" 
+        type="number"
+        value="{{emergencyPhone}}" 
+        placeholder="请输入紧急联系人电话"
+        bindinput="onEmergencyPhoneInput"
+      />
+    </view>
+  </view>
+
+  <button class="save-btn" type="primary" bindtap="saveProfile">保存</button>
+</view> 

@@ -1,0 +1,91 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatar || '/images/default-avatar.png'}}"></image>
+      <view class="info-content">
+        <view class="name">{{userInfo.name || '未设置姓名'}}</view>
+        <view class="status {{userInfo.status}}">
+          <view class="status-dot"></view>
+          <text>{{statusMap[userInfo.status] || '未认证'}}</text>
+        </view>
+      </view>
+      <view class="edit-btn" bindtap="editProfile">
+        <image class="icon" src="/images/edit.png"></image>
+      </view>
+    </view>
+    <view class="user-stats">
+      <view class="stat-item">
+        <text class="value">{{userInfo.orderCount || 0}}</text>
+        <text class="label">总订单</text>
+      </view>
+      <view class="stat-item">
+        <text class="value">{{userInfo.rating || '5.0'}}</text>
+        <text class="label">评分</text>
+      </view>
+      <view class="stat-item">
+        <text class="value">¥{{userInfo.totalIncome || '0.00'}}</text>
+        <text class="label">总收入</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-title">我的服务</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/income/income">
+        <image class="menu-icon" src="/images/wallet.png"></image>
+        <text class="menu-text">收入明细</text>
+        <image class="arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/evaluation/evaluation">
+        <image class="menu-icon" src="/images/star.png"></image>
+        <text class="menu-text">我的评价</text>
+        <image class="arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/service-area/service-area">
+        <image class="menu-icon" src="/images/location.png"></image>
+        <text class="menu-text">服务区域</text>
+        <image class="arrow" src="/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-title">账户设置</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/certification/certification">
+        <image class="menu-icon" src="/images/verify.png"></image>
+        <text class="menu-text">实名认证</text>
+        <image class="arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/bank-card/bank-card">
+        <image class="menu-icon" src="/images/bank.png"></image>
+        <text class="menu-text">银行卡</text>
+        <image class="arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/settings/settings">
+        <image class="menu-icon" src="/images/settings.png"></image>
+        <text class="menu-text">系统设置</text>
+        <image class="arrow" src="/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 客服与帮助 -->
+  <view class="help-section">
+    <button class="help-btn" open-type="contact">
+      <image class="help-icon" src="/images/service.png"></image>
+      <text>联系客服</text>
+    </button>
+    <button class="help-btn" bindtap="showHelp">
+      <image class="help-icon" src="/images/help.png"></image>
+      <text>帮助中心</text>
+    </button>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-btn" bindtap="handleLogout">退出登录</view>
+</view>

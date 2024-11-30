@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="patient-list">
+    <view class="patient-item" wx:for="{{patientList}}" wx:key="_id">
+      <view class="patient-info">
+        <view class="name-gender">
+          <text class="name">{{item.name}}</text>
+          <text class="gender">{{item.gender}}</text>
+        </view>
+        <view class="id-card">身份证：{{item.idCard}}</view>
+        <view class="phone">电话：{{item.phone}}</view>
+      </view>
+      <view class="operation">
+        <text class="edit" bindtap="editPatient" data-id="{{item._id}}">编辑</text>
+        <text class="delete" bindtap="deletePatient" data-id="{{item._id}}">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="add-btn" type="primary" bindtap="addPatient">添加就医人</button>
+</view> 

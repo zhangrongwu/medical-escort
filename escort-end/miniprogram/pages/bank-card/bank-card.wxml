@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 银行卡列表 -->
+  <view class="card-list" wx:if="{{cards.length > 0}}">
+    <view 
+      class="card-item {{card.isDefault ? 'default' : ''}} {{selectedId === card._id ? 'selected' : ''}}"
+      wx:for="{{cards}}"
+      wx:key="_id"
+      wx:for-item="card"
+      bindtap="selectCard"
+      data-id="{{card._id}}"
+    >
+      <view class="card-main">
+        <image class="bank-icon" src="{{card.bankIcon}}"></image>
+        <view class="card-info">
+          <view class="bank-name">{{card.bankName}}</view>
+          <view class="card-type">储蓄卡</view>
+          <view class="card-number">**** **** **** {{card.cardNumber}}</view>
+        </view>
+      </view>
+
+      <!-- 默认标记 -->
+      <view class="default-tag" wx:if="{{card.isDefault}}">
+        <image class="tag-icon" src="/images/default.png"></image>
+        <text>默认</text>
+      </view>
+
+      <!-- 选中标记 -->
+      <view class="select-tag" wx:if="{{isSelectMode}}">
+        <image 
+          class="select-icon" 
+          src="{{selectedId === card._id ? '/images/selected.png' : '/images/unselected.png'}}"
+        ></image>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="card-actions" wx:if="{{!isSelectMode}}">
+        <view 
+          class="action-btn"
+          catchtap="setDefault"
+          data-id="{{card._id}}"
+          wx:if="{{!card.isDefault}}"
+        >设为默认</view>
+        <view 
+          class="action-btn delete"
+          catchtap="deleteCard"
+          data-id="{{card._id}}"
+        >删除</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{!loading && cards.length === 0}}">
+    <image class="empty-icon" src="/images/empty-card.png"></image>
+    <text class="empty-text">暂无银行卡</text>
+    <text class="empty-tips">请添加提现银行卡</text>
+  </view>
+
+  <!-- 添加银行卡按钮 -->
+  <view class="bottom-btn-box">
+    <button 
+      class="add-btn"
+      bindtap="addCard"
+    >
+      <image class="btn-icon" src="/images/add.png"></image>
+      <text>添加银行卡</text>
+    </button>
+  </view>
+</view>
+
+<!-- 删除确认弹窗 -->
+<view class="confirm-dialog {{showDeleteConfirm ? 'show' : ''}}">
+  <view class="dialog-mask" bindtap="hideDeleteConfirm"></view>
+  <view class="dialog-content">
+    <view class="dialog-title">确认删除</view>
+    <view class="dialog-message">确定要删除该银行卡吗？</view>
+    <view class="dialog-buttons">
+      <button 
+        class="dialog-btn cancel"
+        bindtap="hideDeleteConfirm"
+      >取消</button>
+      <button 
+        class="dialog-btn confirm"
+        bindtap="confirmDelete"
+      >确定</button>
+    </view>
+  </view>
+</view> 

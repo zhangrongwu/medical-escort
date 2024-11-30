@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 标签页 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="index"
+      bindtap="switchTab"
+      data-index="{{index}}"
+    >
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 注册申请列表 -->
+  <view class="registration-list" wx:if="{{currentTab === 0}}">
+    <view class="registration-item" wx:for="{{registrations}}" wx:key="_id">
+      <view class="header">
+        <text class="name">{{item.name}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+      <view class="info">
+        <text>{{item.gender === 1 ? '男' : '女'}} | {{item.age}}岁</text>
+        <text>工作年限：{{item.workYears}}年</text>
+        <text>专业背景：{{backgroundOptions[item.background]}}</text>
+      </view>
+      <view class="actions">
+        <button 
+          class="btn btn-primary" 
+          bindtap="viewDetail" 
+          data-id="{{item._id}}"
+        >查看详情</button>
+        <button 
+          class="btn btn-success" 
+          bindtap="approveRegistration" 
+          data-id="{{item._id}}"
+        >通过</button>
+        <button 
+          class="btn btn-danger" 
+          bindtap="rejectRegistration" 
+          data-id="{{item._id}}"
+        >拒绝</button>
+      </view>
+    </view>
+    <view class="empty" wx:if="{{registrations.length === 0}}">
+      暂无待审核的注册申请
+    </view>
+  </view>
+
+  <!-- 陪诊员列表 -->
+  <view class="escort-list" wx:if="{{currentTab === 1}}">
+    <view class="escort-item" wx:for="{{escorts}}" wx:key="_id">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="info">
+        <text class="name">{{item.name}}</text>
+        <view class="stats">
+          <text>评分：{{item.score}}分</text>
+          <text>订单：{{item.orderCount}}单</text>
+          <text>收入：¥{{item.income}}</text>
+        </view>
+      </view>
+      <view class="actions">
+        <button 
+          class="btn btn-primary" 
+          bindtap="viewEscortDetail" 
+          data-id="{{item._id}}"
+        >查看</button>
+        <button 
+          class="btn {{item.status === 'ACTIVE' ? 'btn-danger' : 'btn-success'}}" 
+          bindtap="toggleEscortStatus" 
+          data-id="{{item._id}}"
+          data-status="{{item.status}}"
+        >{{item.status === 'ACTIVE' ? '禁用' : '启用'}}</button>
+      </view>
+    </view>
+    <view class="empty" wx:if="{{escorts.length === 0}}">
+      暂无陪诊员数据
+    </view>
+  </view>
+</view> 

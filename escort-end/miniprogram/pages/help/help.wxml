@@ -1,0 +1,78 @@
+<view class="container">
+  <view class="search-bar">
+    <view class="search-box">
+      <image class="search-icon" src="/images/search.png"></image>
+      <input 
+        class="search-input" 
+        placeholder="搜索问题"
+        value="{{searchKey}}"
+        bindinput="onSearchInput"
+      />
+    </view>
+  </view>
+
+  <!-- 常见问题分类 -->
+  <view class="category-list">
+    <view 
+      class="category-item {{currentCategory === index ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="id"
+      bindtap="switchCategory"
+      data-index="{{index}}"
+    >
+      <image class="category-icon" src="{{item.icon}}"></image>
+      <text class="category-name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 问题列表 -->
+  <view class="qa-list">
+    <view 
+      class="qa-item {{item.expanded ? 'expanded' : ''}}"
+      wx:for="{{questionList}}"
+      wx:key="id"
+      bindtap="toggleQuestion"
+      data-index="{{index}}"
+    >
+      <view class="question">
+        <text class="q-tag">Q</text>
+        <text class="q-text">{{item.question}}</text>
+        <image 
+          class="arrow-icon"
+          src="/images/arrow-down.png"
+        ></image>
+      </view>
+      <view class="answer">
+        <text class="a-tag">A</text>
+        <text class="a-text">{{item.answer}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 在线客服 -->
+  <view class="contact-section">
+    <view class="contact-title">没有找到答案？</view>
+    <view class="contact-options">
+      <button 
+        class="contact-btn"
+        open-type="contact"
+      >
+        <image class="btn-icon" src="/images/service.png"></image>
+        <text>在线客服</text>
+      </button>
+      <view 
+        class="contact-btn"
+        bindtap="makePhoneCall"
+      >
+        <image class="btn-icon" src="/images/phone.png"></image>
+        <text>电话咨询</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 反馈建议 -->
+  <view class="feedback-btn" bindtap="navigateToFeedback">
+    <image class="feedback-icon" src="/images/feedback.png"></image>
+    <text>意见反馈</text>
+  </view>
+</view> 

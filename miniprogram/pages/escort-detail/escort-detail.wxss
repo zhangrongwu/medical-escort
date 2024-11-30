@@ -1,0 +1,216 @@
+.container {
+  padding-bottom: 120rpx;
+}
+
+.escort-header {
+  background: #fff;
+  padding: 40rpx 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 80rpx;
+  margin-right: 30rpx;
+}
+
+.basic-info {
+  flex: 1;
+}
+
+.name-gender {
+  margin-bottom: 16rpx;
+}
+
+.name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.gender {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.rating {
+  margin-bottom: 16rpx;
+}
+
+.score {
+  font-size: 30rpx;
+  color: #ff4d4f;
+  margin-right: 20rpx;
+}
+
+.orders {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  color: #1296db;
+  background: rgba(18, 150, 219, 0.1);
+  padding: 4rpx 16rpx;
+  border-radius: 4rpx;
+}
+
+.section {
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  padding-left: 16rpx;
+  border-left: 8rpx solid #1296db;
+}
+
+.introduction {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.total {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.evaluation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.evaluation-item {
+  display: flex;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+.evaluation-content {
+  flex: 1;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.eval-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.score-stars {
+  display: flex;
+  gap: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.star {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.eval-text {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-info {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-info .label {
+  width: auto;
+  margin-right: 20rpx;
+}
+
+.price .amount {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.price .unit {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.book-btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+} 

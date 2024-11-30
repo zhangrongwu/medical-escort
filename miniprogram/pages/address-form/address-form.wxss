@@ -1,0 +1,83 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: 180rpx;
+  background: #f6f6f6;
+}
+
+.form-group {
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.form-item {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 4rpx;
+}
+
+.input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.picker {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.textarea {
+  flex: 1;
+  height: 160rpx;
+  font-size: 28rpx;
+  line-height: 1.4;
+}
+
+.switch-item {
+  align-items: center;
+}
+
+.btn-group {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.save-btn {
+  width: 100%;
+  margin: 0;
+}
+
+.location-btn {
+  width: 100%;
+  margin: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.location-btn image {
+  width: 36rpx;
+  height: 36rpx;
+} 

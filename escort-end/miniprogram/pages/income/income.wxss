@@ -1,0 +1,222 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 收入概览 */
+.income-overview {
+  background: linear-gradient(135deg, #1890FF 0%, #3CA9FF 100%);
+  padding: 40rpx 30rpx;
+  color: #FFFFFF;
+  box-shadow: 0 4rpx 20rpx rgba(24, 144, 255, 0.2);
+}
+
+.total-section {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.total-section .label {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.total-section .amount {
+  display: block;
+  font-size: 64rpx;
+  font-weight: 600;
+  margin-top: 16rpx;
+  font-family: DIN;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-top: 2rpx solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 30rpx;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-item .value {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  font-family: DIN;
+}
+
+.stat-item .label {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.withdraw-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #FFFFFF;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  color: #1890FF;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 时间筛选 */
+.filter-section {
+  padding: 30rpx;
+  background: #FFFFFF;
+  margin-bottom: 20rpx;
+}
+
+.date-picker {
+  display: inline-flex;
+  align-items: center;
+  padding: 16rpx 30rpx;
+  background: #F5F7FA;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.date-picker .icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+
+/* 收入明细列表 */
+.income-list {
+  padding: 30rpx;
+}
+
+.list-header {
+  margin-bottom: 20rpx;
+}
+
+.list-header .title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.list-header .count {
+  font-size: 26rpx;
+  color: #999999;
+  margin-left: 8rpx;
+}
+
+.income-item {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.item-main {
+  flex: 1;
+  margin-right: 30rpx;
+}
+
+.order-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.type {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-right: 16rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.hospital {
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 8rpx;
+}
+
+.patient {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.item-amount {
+  text-align: right;
+}
+
+.amount {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #52C41A;
+  margin-bottom: 8rpx;
+  font-family: DIN;
+}
+
+.status {
+  font-size: 24rpx;
+  color: #52C41A;
+}
+
+.item-amount.pending .amount,
+.item-amount.pending .status {
+  color: #FAAD14;
+}
+
+/* 加载状态 */
+.loading {
+  text-align: center;
+  padding: 40rpx 0;
+  color: #999999;
+  font-size: 26rpx;
+}
+
+.loading-spinner {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto 16rpx;
+  border: 4rpx solid #F5F7FA;
+  border-top-color: #1890FF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 空状态 */
+.empty {
+  padding: 120rpx 0;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+} 

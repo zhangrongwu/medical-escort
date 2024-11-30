@@ -1,0 +1,100 @@
+<view class="container">
+  <!-- 订单状态卡片 -->
+  <view class="status-card {{order.status}}">
+    <view class="status-header">
+      <text class="status-text">{{statusMap[order.status]}}</text>
+      <text class="order-no">订单号：{{order.orderNo}}</text>
+    </view>
+    <view class="status-desc">{{statusDesc[order.status]}}</view>
+  </view>
+
+  <!-- 陪诊员信息 -->
+  <view class="section">
+    <view class="section-title">陪诊员信息</view>
+    <view class="escort-info">
+      <image class="avatar" src="{{order.escortInfo.avatar}}" mode="aspectFill"/>
+      <view class="info">
+        <text class="name">{{order.escortInfo.name}}</text>
+        <text class="phone">{{order.escortInfo.phone}}</text>
+      </view>
+      <button class="contact-btn" bindtap="contactEscort">
+        <text class="icon icon-phone"></text>
+        <text>联系陪诊员</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 就医信息 -->
+  <view class="section">
+    <view class="section-title">就医信息</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="label">就医人</text>
+        <text class="value">{{order.patientInfo.name}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医医院</text>
+        <text class="value">{{order.hospitalName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医科室</text>
+        <text class="value">{{order.departmentName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医时间</text>
+        <text class="value">{{order.appointmentDate}} {{order.timeSlot}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务信息 -->
+  <view class="section">
+    <view class="section-title">服务信息</view>
+    <view class="service-list">
+      <view class="service-item" wx:for="{{order.services}}" wx:key="id">
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-price">¥{{item.price}}</text>
+      </view>
+      <view class="total-price">
+        <text>合计</text>
+        <text class="price">¥{{order.totalPrice}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="section">
+    <view class="section-title">订单信息</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="label">下单时间</text>
+        <text class="value">{{order.createTime}}</text>
+      </view>
+      <view class="info-item" wx:if="{{order.payTime}}">
+        <text class="label">支付时间</text>
+        <text class="value">{{order.payTime}}</text>
+      </view>
+      <view class="info-item" wx:if="{{order.remark}}">
+        <text class="label">备注信息</text>
+        <text class="value remark">{{order.remark}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <block wx:if="{{order.status === 'UNPAID'}}">
+      <button class="btn btn-default" bindtap="cancelOrder">取消订单</button>
+      <button class="btn btn-primary" bindtap="payOrder">立即支付</button>
+    </block>
+    <block wx:elif="{{order.status === 'PAID'}}">
+      <button class="btn btn-primary" open-type="contact">联系客服</button>
+    </block>
+    <block wx:elif="{{order.status === 'FINISHED' && !order.isEvaluated}}">
+      <button class="btn btn-primary" bindtap="evaluateOrder">评价服务</button>
+    </block>
+    <block wx:elif="{{order.status === 'CANCELLED'}}">
+      <button class="btn btn-primary" bindtap="deleteOrder">删除订单</button>
+    </block>
+  </view>
+</view> 

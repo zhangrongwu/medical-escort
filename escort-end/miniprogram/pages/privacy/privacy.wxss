@@ -1,0 +1,126 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 头部 */
+.header {
+  background: #FFFFFF;
+  padding: 40rpx 30rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.update-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 内容区域 */
+.content {
+  padding: 30rpx;
+}
+
+.section {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #1890FF;
+}
+
+.paragraph {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+  margin-bottom: 20rpx;
+}
+
+.list-item {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+  padding-left: 40rpx;
+  position: relative;
+}
+
+.list-item::before {
+  content: '•';
+  position: absolute;
+  left: 20rpx;
+  color: #1890FF;
+}
+
+/* 链接样式 */
+.link {
+  color: #1890FF;
+  text-decoration: underline;
+}
+
+/* 强调文本 */
+.highlight {
+  color: #FF4D4F;
+  font-weight: 500;
+}
+
+/* 引用样式 */
+.quote {
+  background: #F8FAFF;
+  border-left: 6rpx solid #1890FF;
+  padding: 20rpx;
+  margin: 20rpx 0;
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* 表格样式 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20rpx 0;
+}
+
+.table-header {
+  background: #F8FAFF;
+  font-weight: 500;
+}
+
+.table-cell {
+  padding: 20rpx;
+  border: 2rpx solid #EBEEF5;
+  font-size: 26rpx;
+  color: #666666;
+  text-align: center;
+}
+
+/* 底部联系方式 */
+.contact-info {
+  margin-top: 40rpx;
+  padding: 30rpx;
+  background: #F8FAFF;
+  border-radius: 12rpx;
+}
+
+.contact-item {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.8;
+} 

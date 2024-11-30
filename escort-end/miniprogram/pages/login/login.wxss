@@ -1,0 +1,160 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6f8fc 0%, #ffffff 100%);
+  padding: 60rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo 区域 */
+.logo-box {
+  margin: 80rpx 0 120rpx;
+  text-align: center;
+  animation: fadeInDown 0.8s ease;
+}
+
+.logo {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+  border-radius: 50rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #666;
+  opacity: 0.8;
+}
+
+/* 登录按钮 */
+.login-methods {
+  width: 100%;
+  margin-bottom: 80rpx;
+  animation: fadeInUp 0.8s ease;
+}
+
+.login-btn {
+  width: 100%;
+  height: 100rpx;
+  margin-bottom: 30rpx;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  transition: all 0.3s;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.login-btn .icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 16rpx;
+}
+
+.wechat-btn {
+  background: linear-gradient(135deg, #07c160, #0ab356);
+  color: #fff;
+}
+
+.phone-btn {
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  color: #fff;
+}
+
+/* 用户协议 */
+.agreement {
+  margin-bottom: 80rpx;
+  animation: fadeIn 1s ease;
+}
+
+.agreement-label {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+
+.agreement-label checkbox {
+  transform: scale(0.8);
+  margin-right: 8rpx;
+}
+
+.agreement-text {
+  color: #666;
+}
+
+.link {
+  color: #1890ff;
+  margin: 0 4rpx;
+}
+
+/* 底部提示 */
+.bottom-tips {
+  position: fixed;
+  bottom: 40rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  animation: fadeIn 1.5s ease;
+}
+
+.service-btn {
+  display: inline;
+  font-size: 24rpx;
+  color: #1890ff;
+  background: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.service-btn::after {
+  display: none;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

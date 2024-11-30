@@ -1,0 +1,131 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <!-- 顶部统计卡片 -->
+  <view class="stats-card">
+    <view class="stats-item">
+      <text class="stats-value">{{stats.todayOrders || 0}}</text>
+      <text class="stats-label">今日订单</text>
+    </view>
+    <view class="stats-divider"></view>
+    <view class="stats-item">
+      <text class="stats-value">¥{{stats.todayIncome || '0.00'}}</text>
+      <text class="stats-label">今日收入</text>
+    </view>
+    <view class="stats-divider"></view>
+    <view class="stats-item">
+      <text class="stats-value">{{stats.totalOrders || 0}}</text>
+      <text class="stats-label">总订单数</text>
+    </view>
+  </view>
+
+  <!-- 状态标签栏 -->
+  <view class="status-tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="*this"
+      bindtap="switchTab"
+      data-index="{{index}}"
+    >
+      <text class="tab-text">{{item}}</text>
+      <text class="tab-count" wx:if="{{tabCounts[index]}}">{{tabCounts[index]}}</text>
+      <view class="tab-line" wx:if="{{currentTab === index}}"></view>
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view 
+    class="order-list"
+    scroll-y
+    refresher-enabled
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="onRefresh"
+    bindscrolltolower="onLoadMore"
+  >
+    <view 
+      class="order-card"
+      wx:for="{{orders}}"
+      wx:key="_id"
+      bindtap="viewDetail"
+      data-id="{{item._id}}"
+    >
+      <!-- 订单头部 -->
+      <view class="card-header">
+        <view class="order-type">
+          <image class="type-icon" src="/images/{{item.serviceType}}.png"></image>
+          <text>{{item.serviceType}}</text>
+        </view>
+        <view class="order-status {{item.status}}">
+          <view class="status-dot"></view>
+          <text>{{statusMap[item.status]}}</text>
+        </view>
+      </view>
+
+      <!-- 订单内容 -->
+      <view class="card-body">
+        <view class="hospital-info">
+          <image class="hospital-icon" src="/images/hospital.png"></image>
+          <view class="hospital-detail">
+            <view class="hospital-name">{{item.hospitalName}}</view>
+            <view class="department">{{item.departmentName}}</view>
+          </view>
+          <view class="distance" wx:if="{{item.distance}}">
+            <image class="distance-icon" src="/images/location.png"></image>
+            <text>{{item.distance}}km</text>
+          </view>
+        </view>
+
+        <view class="service-info">
+          <view class="time-info">
+            <image class="icon" src="/images/time.png"></image>
+            <text>{{item.appointmentDate}} {{item.timeSlot}}</text>
+          </view>
+          <view class="patient-info">
+            <image class="icon" src="/images/patient.png"></image>
+            <text>{{item.patientInfo.name}}</text>
+            <text class="gender {{item.patientInfo.gender}}">{{item.patientInfo.gender === 'male' ? '男' : '女'}}</text>
+            <text class="age">{{item.patientInfo.age}}岁</text>
+          </view>
+        </view>
+
+        <view class="price-info">
+          <text class="label">订单金额</text>
+          <view class="price-detail">
+            <text class="currency">¥</text>
+            <text class="price">{{item.totalPrice}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 订单底部 -->
+      <view class="card-footer">
+        <view class="order-time">{{item.createTime}}</view>
+        <view class="action-buttons">
+          <button 
+            class="action-btn primary"
+            catchtap="acceptOrder"
+            data-id="{{item._id}}"
+            wx:if="{{item.status === 'PENDING'}}"
+          >接单</button>
+          <button 
+            class="action-btn detail"
+            catchtap="viewDetail"
+            data-id="{{item._id}}"
+          >查看详情</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty" wx:if="{{!loading && orders.length === 0}}">
+      <image class="empty-icon" src="../../images/empty-order.png"></image>
+      <text class="empty-text">暂无{{tabs[currentTab]}}订单</text>
+    </view>
+  </scroll-view>
+</view>

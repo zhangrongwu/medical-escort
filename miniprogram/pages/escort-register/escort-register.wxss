@@ -1,0 +1,151 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  padding-left: 16rpx;
+  border-left: 6rpx solid #1890ff;
+}
+
+.form-item {
+  margin-bottom: 24rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.picker {
+  width: 100%;
+  height: 80rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.textarea {
+  width: 100%;
+  height: 200rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.upload-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30rpx;
+}
+
+.upload-item {
+  width: calc(50% - 15rpx);
+}
+
+.upload-label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.upload-box {
+  width: 100%;
+  height: 200rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.upload-box image {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+
+.upload-placeholder .icon {
+  font-size: 48rpx;
+  margin-bottom: 8rpx;
+}
+
+.unit {
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 12rpx;
+}
+
+.submit-btn {
+  width: 90%;
+  margin: 60rpx auto;
+}
+
+.tips {
+  text-align: center;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.link {
+  color: #1890ff;
+  display: inline;
+} 

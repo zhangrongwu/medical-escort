@@ -1,0 +1,148 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <icon type="search" size="14"></icon>
+    <input 
+      class="search-input" 
+      placeholder="搜索订单号/医院/就医人" 
+      bindinput="onSearchInput"
+      value="{{searchKey}}"
+    />
+  </view>
+
+  <!-- 筛选条件 -->
+  <view class="filter-bar">
+    <view class="filter-item" bindtap="showDatePicker">
+      <text>{{dateFilter || '日期筛选'}}</text>
+      <image class="arrow" src="/images/arrow-down.png"></image>
+    </view>
+    <view class="filter-item" bindtap="showStatusFilter">
+      <text>{{statusFilter || '状态筛选'}}</text>
+      <image class="arrow" src="/images/arrow-down.png"></image>
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view 
+    class="order-list"
+    scroll-y
+    refresher-enabled
+    bindrefresherrefresh="onRefresh"
+    refresher-triggered="{{refreshing}}"
+    bindscrolltolower="loadMore"
+  >
+    <view class="order-item" 
+      wx:for="{{filteredOrders}}" 
+      wx:key="_id"
+      bindtap="goToDetail"
+      data-id="{{item._id}}"
+    >
+      <view class="order-header">
+        <text class="order-no">订单号：{{item.orderNo}}</text>
+        <text class="order-status {{item.status}}">{{statusMap[item.status]}}</text>
+      </view>
+
+      <view class="order-content">
+        <view class="hospital-info">
+          <text class="hospital-name">{{item.hospitalName}}</text>
+          <text class="department">{{item.departmentName}}</text>
+        </view>
+        <view class="appointment-info">
+          <text class="date">就医时间：{{item.appointmentDate}} {{item.timeSlot}}</text>
+          <text class="patient">就医人：{{item.patientInfo.name}}</text>
+        </view>
+        <view class="service-info">
+          <text class="service">{{item.services[0].name}}等{{item.services.length}}项服务</text>
+          <text class="price">¥{{item.totalPrice}}</text>
+        </view>
+      </view>
+
+      <view class="order-footer">
+        <block wx:if="{{item.status === 'UNPAID'}}">
+          <button class="btn cancel-btn" 
+            catchtap="cancelOrder" 
+            data-id="{{item._id}}"
+          >取消订单</button>
+          <button class="btn pay-btn" 
+            catchtap="payOrder" 
+            data-id="{{item._id}}"
+          >立即支付</button>
+        </block>
+        <block wx:if="{{item.status === 'FINISHED'}}">
+          <button class="btn share-btn" 
+            catchtap="shareOrder" 
+            data-id="{{item._id}}"
+          >分享</button>
+          <button class="btn evaluate-btn" 
+            catchtap="evaluateOrder" 
+            data-id="{{item._id}}"
+          >评价服务</button>
+        </block>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{filteredOrders.length === 0}}">
+      <image src="/images/empty-order.png"></image>
+      <text>{{searchKey ? '未找到相关订单' : '暂无相关订单'}}</text>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="loading-more" wx:if="{{filteredOrders.length > 0}}">
+      {{hasMore ? '加载中...' : '没有更多了'}}
+    </view>
+  </scroll-view>
+
+  <!-- 日期筛选弹窗 -->
+  <view class="popup date-popup" wx:if="{{showDatePicker}}">
+    <view class="popup-mask" bindtap="hideDatePicker"></view>
+    <view class="popup-content">
+      <view class="popup-header">
+        <text>选择日期范围</text>
+        <icon type="clear" size="20" bindtap="hideDatePicker"></icon>
+      </view>
+      <view class="date-range">
+        <picker mode="date" bindchange="onStartDateChange">
+          <view class="date-item">
+            <text class="label">开始日期</text>
+            <text class="value">{{startDate || '请选择'}}</text>
+          </view>
+        </picker>
+        <picker mode="date" bindchange="onEndDateChange">
+          <view class="date-item">
+            <text class="label">结束日期</text>
+            <text class="value">{{endDate || '请选择'}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="popup-footer">
+        <button class="reset-btn" bindtap="resetDateFilter">重置</button>
+        <button class="confirm-btn" type="primary" bindtap="confirmDateFilter">确定</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 状态筛选弹窗 -->
+  <view class="popup status-popup" wx:if="{{showStatusFilter}}">
+    <view class="popup-mask" bindtap="hideStatusFilter"></view>
+    <view class="popup-content">
+      <view class="popup-header">
+        <text>选择订单状态</text>
+        <icon type="clear" size="20" bindtap="hideStatusFilter"></icon>
+      </view>
+      <view class="status-list">
+        <view class="status-item {{selectedStatus === '' ? 'active' : ''}}" 
+          bindtap="selectStatus" 
+          data-status=""
+        >全部</view>
+        <view class="status-item {{selectedStatus === status ? 'active' : ''}}" 
+          wx:for="{{Object.entries(statusMap)}}" 
+          wx:key="0"
+          wx:for-item="status"
+          bindtap="selectStatus" 
+          data-status="{{status[0]}}"
+        >{{status[1]}}</view>
+      </view>
+    </view>
+  </view>
+</view> 

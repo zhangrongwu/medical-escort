@@ -1,0 +1,10 @@
+{
+  "name": "sendSmsCode",
+  "version": "1.0.0",
+  "description": "发送短信验证码",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest",
+    "tencentcloud-sdk-nodejs": "latest"
+  }
+} 

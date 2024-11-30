@@ -1,0 +1,147 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding: 30rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Logo区域 */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+
+.app-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 12rpx;
+}
+
+.version {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 内容区块 */
+.section {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #1890FF;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* 功能特色 */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30rpx;
+  padding: 20rpx 0;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx;
+  background: #F8FAFF;
+  border-radius: 16rpx;
+}
+
+.feature-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.feature-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.feature-desc {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 联系方式 */
+.contact-list {
+  background: #FFFFFF;
+  border-radius: 12rpx;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #F5F7FA;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item .icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.contact-item .label {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.contact-item .value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.contact-item .copy {
+  font-size: 24rpx;
+  color: #1890FF;
+  padding: 4rpx 16rpx;
+  border: 2rpx solid #1890FF;
+  border-radius: 24rpx;
+}
+
+/* 底部版权 */
+.footer {
+  text-align: center;
+  padding: 60rpx 0 30rpx;
+}
+
+.footer text {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 1.8;
+} 

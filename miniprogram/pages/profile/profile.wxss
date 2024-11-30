@@ -1,0 +1,80 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+  background: #f6f6f6;
+}
+
+.form-group {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.avatar-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 20rpx;
+}
+
+.tip {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.picker {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.phone {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.change-btn, .bind-btn {
+  font-size: 26rpx;
+  color: #1296db;
+  padding: 8rpx 20rpx;
+  border: 1rpx solid #1296db;
+  border-radius: 24rpx;
+}
+
+.save-btn {
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+} 

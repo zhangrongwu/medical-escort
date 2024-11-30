@@ -1,0 +1,301 @@
+.container {
+  min-height: 100vh;
+  padding: 40rpx;
+  background: linear-gradient(135deg, #f6f8fc 0%, #ffffff 100%);
+}
+
+/* 状态卡片 */
+.status-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+  animation: fadeInDown 0.8s ease;
+}
+
+.status-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto 30rpx;
+}
+
+.status-icon.PENDING image {
+  animation: pulse 2s infinite;
+}
+
+.status-icon.APPROVED image {
+  animation: bounce 1s;
+}
+
+.status-icon.REJECTED image {
+  animation: shake 0.5s;
+}
+
+.status-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.status-text.PENDING {
+  color: #faad14;
+}
+
+.status-text.APPROVED {
+  color: #52c41a;
+}
+
+.status-text.REJECTED {
+  color: #ff4d4f;
+}
+
+.status-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 40rpx;
+  display: block;
+}
+
+/* 进度条 */
+.progress-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 60rpx 0;
+  position: relative;
+}
+
+.progress-box::before {
+  content: '';
+  position: absolute;
+  top: 20rpx;
+  left: 40rpx;
+  right: 40rpx;
+  height: 2rpx;
+  background: #f0f0f0;
+  z-index: 1;
+}
+
+.progress-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #f0f0f0;
+  margin-bottom: 16rpx;
+  transition: all 0.3s;
+}
+
+.progress-item.active .dot {
+  background: #1890ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6rpx rgba(24, 144, 255, 0.2);
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+
+.label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.progress-item.active .time,
+.progress-item.active .label {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+/* 审核备注 */
+.review-note {
+  margin-top: 40rpx;
+  padding: 20rpx;
+  background: #fff7e6;
+  border-radius: 12rpx;
+  text-align: left;
+}
+
+.note-label {
+  font-size: 26rpx;
+  color: #d46b08;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.note-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 预览卡片 */
+.preview-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.edit {
+  font-size: 26rpx;
+  color: #1890ff;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-item .label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info-item .value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+/* 底部按钮 */
+.bottom-btns {
+  display: flex;
+  gap: 30rpx;
+  margin-top: 60rpx;
+}
+
+.contact-btn, .back-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.contact-btn {
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  color: #fff;
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+}
+
+.back-btn {
+  background: #fff;
+  color: #666;
+  border: 2rpx solid #ddd;
+}
+
+.contact-btn:active, .back-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* 动画 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20rpx);
+  }
+  60% {
+    transform: translateY(-10rpx);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10rpx);
+  }
+  75% {
+    transform: translateX(10rpx);
+  }
+} 

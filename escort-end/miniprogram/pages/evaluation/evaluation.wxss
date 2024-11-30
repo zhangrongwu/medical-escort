@@ -1,0 +1,298 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 评价统计 */
+.stats-bar {
+  display: flex;
+  padding: 40rpx 30rpx;
+  background: #FFFFFF;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-item .value {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #1890FF;
+  margin-bottom: 12rpx;
+  font-family: DIN;
+}
+
+.stat-item .label {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+/* 评分分布 */
+.rating-distribution {
+  padding: 30rpx;
+  background: #FFFFFF;
+  margin-bottom: 20rpx;
+}
+
+.rating-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.rating-item:last-child {
+  margin-bottom: 0;
+}
+
+.rating-label {
+  width: 80rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.rating-bar {
+  flex: 1;
+  height: 20rpx;
+  background: #F5F7FA;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+  overflow: hidden;
+}
+
+.rating-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #FFB13F 0%, #FFCB7C 100%);
+  border-radius: 10rpx;
+  transition: width 0.3s ease;
+}
+
+.rating-count {
+  width: 80rpx;
+  font-size: 26rpx;
+  color: #999999;
+  text-align: right;
+}
+
+/* 评价列表 */
+.evaluation-list {
+  padding: 30rpx;
+}
+
+.evaluation-item {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 用户信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.rating {
+  display: flex;
+  gap: 8rpx;
+}
+
+.star {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 订单信息 */
+.order-info {
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 20rpx;
+}
+
+.hospital {
+  margin-right: 20rpx;
+}
+
+/* 评价内容 */
+.comment {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+}
+
+/* 评价图片 */
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.eval-image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 12rpx;
+}
+
+/* 回复区域 */
+.reply-box {
+  background: #F8FAFF;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.reply-content {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.reply-label {
+  color: #1890FF;
+  font-weight: 500;
+}
+
+.reply-btn {
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #1890FF;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 回复弹窗 */
+.reply-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.reply-dialog.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dialog-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 30rpx;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.reply-dialog.show .dialog-content {
+  transform: translateY(0);
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.dialog-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.close-btn {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999999;
+}
+
+.reply-textarea {
+  width: 100%;
+  height: 240rpx;
+  background: #F5F7FA;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word-count {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.submit-btn {
+  width: 160rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  background: #1890FF;
+  border-radius: 36rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.submit-btn.disabled {
+  background: #CCCCCC;
+} 

@@ -1,0 +1,120 @@
+<view class="container">
+  <!-- 就医人信息 -->
+  <view class="section">
+    <view class="section-title">就医人信息</view>
+    <view class="patient-select" bindtap="selectPatient">
+      <block wx:if="{{selectedPatient}}">
+        <view class="patient-info">
+          <text class="name">{{selectedPatient.name}}</text>
+          <text class="id-card">{{selectedPatient.idCard}}</text>
+        </view>
+        <text class="change">更换就医人</text>
+      </block>
+      <block wx:else>
+        <text class="placeholder">请选择就医人</text>
+        <text class="add">添加就医人</text>
+      </block>
+    </view>
+  </view>
+
+  <!-- 医院科室 -->
+  <view class="section">
+    <view class="section-title">就医信息</view>
+    <view class="form-item">
+      <text class="label">就医医院</text>
+      <picker 
+        mode="selector" 
+        range="{{hospitals}}" 
+        range-key="name"
+        value="{{hospitalIndex}}"
+        bindchange="onHospitalChange"
+      >
+        <view class="picker">
+          {{hospitalIndex !== null ? hospitals[hospitalIndex].name : '请选择医院'}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">就医科室</text>
+      <picker 
+        mode="selector" 
+        range="{{departments}}" 
+        range-key="name"
+        value="{{departmentIndex}}"
+        bindchange="onDepartmentChange"
+        disabled="{{!hospitals[hospitalIndex]}}"
+      >
+        <view class="picker">
+          {{departmentIndex !== null ? departments[departmentIndex].name : '请选择科室'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 就医时间 -->
+  <view class="section">
+    <view class="section-title">就医时间</view>
+    <view class="form-item">
+      <text class="label">预约日期</text>
+      <picker 
+        mode="date" 
+        start="{{minDate}}"
+        end="{{maxDate}}"
+        value="{{appointmentDate}}"
+        bindchange="onDateChange"
+      >
+        <view class="picker">{{appointmentDate || '请选择日期'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">预约时段</text>
+      <picker 
+        mode="selector" 
+        range="{{timeSlots}}"
+        value="{{timeSlotIndex}}"
+        bindchange="onTimeSlotChange"
+      >
+        <view class="picker">{{timeSlotIndex !== null ? timeSlots[timeSlotIndex] : '请选择时间'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 陪诊服务 -->
+  <view class="section">
+    <view class="section-title">陪诊服务</view>
+    <view class="service-grid">
+      <view 
+        class="service-item {{item.selected ? 'selected' : ''}}" 
+        wx:for="{{services}}" 
+        wx:key="id"
+        bindtap="toggleService"
+        data-id="{{item.id}}"
+      >
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-price">¥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 备注信息 -->
+  <view class="section">
+    <view class="section-title">备注信息</view>
+    <textarea 
+      class="remark-input" 
+      placeholder="请输入备注信息（选填）" 
+      maxlength="200"
+      bindinput="onRemarkInput"
+      value="{{remark}}"
+    ></textarea>
+    <view class="word-count">{{remark.length}}/200</view>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="bottom-bar">
+    <view class="price-info">
+      <text class="price-label">合计：</text>
+      <text class="price-amount">¥{{totalPrice}}</text>
+    </view>
+    <button class="submit-btn" type="primary" bindtap="submitOrder">提交预约</button>
+  </view>
+</view> 

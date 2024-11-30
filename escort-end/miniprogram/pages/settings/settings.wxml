@@ -1,0 +1,93 @@
+<!--pages/settings/settings.wxml-->
+<view class="container">
+  <!-- 基本设置 -->
+  <view class="section">
+    <view class="section-title">基本设置</view>
+    <view class="setting-list">
+      <view class="setting-item">
+        <text class="label">接单提醒</text>
+        <switch checked="{{settings.orderNotify}}" bindchange="toggleOrderNotify" color="#1890FF"/>
+      </view>
+      <view class="setting-item">
+        <text class="label">消息通知</text>
+        <switch checked="{{settings.messageNotify}}" bindchange="toggleMessageNotify" color="#1890FF"/>
+      </view>
+      <view class="setting-item">
+        <text class="label">声音提示</text>
+        <switch checked="{{settings.soundNotify}}" bindchange="toggleSoundNotify" color="#1890FF"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- 隐私设置 -->
+  <view class="section">
+    <view class="section-title">隐私设置</view>
+    <view class="setting-list">
+      <view class="setting-item">
+        <text class="label">位置服务</text>
+        <switch checked="{{settings.locationService}}" bindchange="toggleLocationService" color="#1890FF"/>
+      </view>
+      <view class="setting-item">
+        <text class="label">展示在线状态</text>
+        <switch checked="{{settings.showOnlineStatus}}" bindchange="toggleOnlineStatus" color="#1890FF"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- 账号安全 -->
+  <view class="section">
+    <view class="section-title">账号安全</view>
+    <view class="setting-list">
+      <view class="setting-item arrow" bindtap="navigateTo" data-url="/pages/change-phone/change-phone">
+        <text class="label">修改手机号</text>
+        <text class="value">{{userInfo.phone || '未设置'}}</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="setting-item arrow" bindtap="navigateTo" data-url="/pages/change-password/change-password">
+        <text class="label">修改密码</text>
+        <text class="value">已设置</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他设置 -->
+  <view class="section">
+    <view class="section-title">其他设置</view>
+    <view class="setting-list">
+      <view class="setting-item arrow" bindtap="clearCache">
+        <text class="label">清除缓存</text>
+        <text class="value">{{cacheSize}}</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="setting-item arrow" bindtap="checkUpdate">
+        <text class="label">检查更新</text>
+        <text class="value">当前版本 {{version}}</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 关于我们 -->
+  <view class="section">
+    <view class="section-title">关于我们</view>
+    <view class="setting-list">
+      <view class="setting-item arrow" bindtap="navigateTo" data-url="/pages/about/about">
+        <text class="label">关于医诊助手</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <button class="setting-item contact-btn" open-type="contact">
+        <text class="label">联系客服</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </button>
+      <view class="setting-item arrow" bindtap="navigateTo" data-url="/pages/privacy/privacy">
+        <text class="label">隐私政策</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+      <view class="setting-item arrow" bindtap="navigateTo" data-url="/pages/agreement/agreement">
+        <text class="label">用户协议</text>
+        <image class="icon-arrow" src="/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

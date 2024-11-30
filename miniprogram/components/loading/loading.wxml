@@ -1,0 +1,6 @@
+<view class="loading-container" wx:if="{{show}}">
+  <view class="loading-wrapper">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">{{text}}</text>
+  </view>
+</view> 

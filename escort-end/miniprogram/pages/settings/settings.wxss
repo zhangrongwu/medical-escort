@@ -1,0 +1,101 @@
+/* pages/settings/settings.wxss */
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding: 30rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 设置区块 */
+.section {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #1890FF;
+}
+
+/* 设置列表 */
+.setting-list {
+  background: #FFFFFF;
+  border-radius: 12rpx;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #F5F7FA;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item .label {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.setting-item .value {
+  font-size: 26rpx;
+  color: #999999;
+  margin-right: 20rpx;
+}
+
+.setting-item.arrow {
+  padding-right: 20rpx;
+}
+
+.icon-arrow {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 联系客服按钮 */
+.contact-btn {
+  width: 100%;
+  background: none;
+  padding: 30rpx 0;
+  text-align: left;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1;
+}
+
+.contact-btn::after {
+  display: none;
+}
+
+/* 开关样式 */
+switch {
+  transform: scale(0.8);
+  margin-right: -10rpx;
+}
+
+/* 动画效果 */
+.setting-item {
+  transition: background-color 0.3s;
+}
+
+.setting-item:active {
+  background-color: #F5F7FA;
+}
+
+/* 版本信息 */
+.version-info {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999999;
+  font-size: 24rpx;
+}

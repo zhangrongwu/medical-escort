@@ -1,0 +1,182 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+/* 标签栏 */
+.tabs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #1890ff;
+  border-radius: 2rpx;
+}
+
+/* 培训列表 */
+.training-list {
+  margin-top: 108rpx;
+  padding: 30rpx;
+  height: calc(100vh - 108rpx);
+}
+
+.training-item {
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.training-header {
+  padding: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.status {
+  font-size: 26rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  background: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+}
+
+.status.completed {
+  background: rgba(82, 196, 26, 0.1);
+  color: #52c41a;
+}
+
+.training-content {
+  padding: 24rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 26rpx;
+  color: #666;
+  width: 140rpx;
+}
+
+.value {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+.training-footer {
+  padding: 24rpx;
+  border-top: 2rpx solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+}
+
+.score .value {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.score .value.pass {
+  color: #52c41a;
+}
+
+.score .value.fail {
+  color: #ff4d4f;
+}
+
+.start-btn {
+  width: 160rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 26rpx;
+  border-radius: 32rpx;
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(24, 144, 255, 0.2);
+}
+
+.start-btn.disabled {
+  background: #f5f5f5;
+  color: #999;
+  box-shadow: none;
+}
+
+/* 空状态 */
+.empty-tip {
+  padding: 120rpx 0;
+  text-align: center;
+}
+
+.empty-tip image {
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-tip text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 加载更多 */
+.loading-more {
+  text-align: center;
+  padding: 30rpx 0;
+  color: #999;
+  font-size: 26rpx;
+} 

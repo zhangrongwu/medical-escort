@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- Logo -->
+  <view class="logo-box">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="title">医疗陪诊小程序</text>
+    <text class="subtitle">让就医更便捷</text>
+  </view>
+
+  <!-- 登录按钮 -->
+  <view class="login-methods">
+    <button 
+      class="login-btn wechat-btn"
+      bindtap="handleWxLogin"
+      loading="{{loading}}"
+    >
+      <image class="icon" src="/images/wechat.png"></image>
+      <text class="icon icon-wechat"></text>
+      <text>微信一键登录</text>
+    </button>
+
+    <!-- 手机号登录 -->
+    <button 
+      class="login-btn phone-btn"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="onGetPhoneNumber"
+    >
+      <text class="icon icon-phone"></text>
+      <text>手机号一键登录</text>
+    </button>
+  </view>
+
+  <!-- 用户协议 -->
+  <view class="agreement">
+    <checkbox-group bindchange="onAgreementChange">
+      <checkbox value="agree" checked="{{isAgree}}"></checkbox>
+      <text class="agreement-text">我已阅读并同意</text>
+      <text class="link" bindtap="showUserAgreement">《用户协议》</text>
+      <text class="agreement-text">和</text>
+      <text class="link" bindtap="showPrivacyPolicy">《隐私政策》</text>
+    </checkbox-group>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="bottom-tips">
+    <text>登录遇到问题？</text>
+    <button class="service-btn" open-type="contact">联系客服</button>
+  </view>
+</view> 

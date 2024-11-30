@@ -1,0 +1,12 @@
+<view class="card {{shadow ? 'with-shadow' : ''}}">
+  <view class="card-header" wx:if="{{title || showMore}}">
+    <text class="card-title">{{title}}</text>
+    <view class="card-extra" wx:if="{{showMore}}" bindtap="onMore">
+      <text class="more-text">{{moreText}}</text>
+      <image class="more-icon" src="/images/arrow-right.png"></image>
+    </view>
+  </view>
+  <view class="card-content">
+    <slot></slot>
+  </view>
+</view> 

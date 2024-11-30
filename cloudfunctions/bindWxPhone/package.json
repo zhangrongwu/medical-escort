@@ -1,0 +1,9 @@
+{
+  "name": "bindWxPhone",
+  "version": "1.0.0",
+  "description": "绑定微信手机号",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+} 

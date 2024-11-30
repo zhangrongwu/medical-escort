@@ -1,0 +1,193 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <!-- 基本信息 -->
+    <view class="form-group">
+      <view class="group-title">基本信息</view>
+      
+      <!-- 头像上传 -->
+      <view class="form-item">
+        <text class="label required">头像</text>
+        <view class="avatar-upload" bindtap="chooseAvatar">
+          <image class="avatar" src="{{formData.avatar || '/images/default-avatar.png'}}"></image>
+          <view class="upload-mask" wx:if="{{!formData.avatar}}">
+            <text class="icon-camera"></text>
+            <text class="upload-tip">上传头像</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 姓名 -->
+      <view class="form-item">
+        <text class="label required">姓名</text>
+        <input 
+          class="input"
+          name="name"
+          placeholder="请输入真实姓名"
+          value="{{formData.name}}"
+          bindinput="onNameInput"
+        />
+      </view>
+
+      <!-- 性别 -->
+      <view class="form-item">
+        <text class="label required">性别</text>
+        <radio-group class="radio-group" bindchange="onGenderChange">
+          <label class="radio" wx:for="{{genderOptions}}" wx:key="value">
+            <radio value="{{item.value}}" checked="{{formData.gender === item.value}}"/>
+            <text>{{item.label}}</text>
+          </label>
+        </radio-group>
+      </view>
+
+      <!-- 手机号 -->
+      <view class="form-item">
+        <text class="label required">手机号</text>
+        <input 
+          class="input" 
+          type="number"
+          maxlength="11"
+          placeholder="请输入手机号"
+          value="{{formData.phone}}"
+          bindinput="onPhoneInput"
+        />
+      </view>
+
+      <!-- 身份证号 -->
+      <view class="form-item">
+        <text class="label required">身份证号</text>
+        <input 
+          class="input"
+          type="idcard"
+          name="idCard"
+          placeholder="请输入身份证号"
+          value="{{formData.idCard}}"
+          bindinput="onIdCardInput"
+        />
+      </view>
+    </view>
+
+    <!-- 工作信息 -->
+    <view class="form-group">
+      <view class="group-title">工作信息</view>
+
+      <!-- 工作年限 -->
+      <view class="form-item">
+        <text class="label required">工作年限</text>
+        <picker 
+          mode="selector"
+          range="{{experienceOptions}}"
+          value="{{experienceIndex}}"
+          bindchange="onExperienceChange"
+        >
+          <view class="picker {{experienceIndex !== null ? '' : 'placeholder'}}">
+            {{experienceIndex !== null ? experienceOptions[experienceIndex] : '请选择工作年限'}}
+          </view>
+        </picker>
+      </view>
+
+      <!-- 服务区域 -->
+      <view class="form-item">
+        <text class="label required">服务区域</text>
+        <picker 
+          mode="region"
+          value="{{formData.region}}"
+          bindchange="onRegionChange"
+        >
+          <view class="picker {{formData.region[0] ? '' : 'placeholder'}}">
+            {{formData.region[0] ? formData.region.join(' ') : '请选择服务区域'}}
+          </view>
+        </picker>
+      </view>
+
+      <!-- 服务类型 -->
+      <view class="form-item">
+        <text class="label required">服务类型</text>
+        <view class="service-types">
+          <view 
+            class="type-tag {{item.selected ? 'selected' : ''}}"
+            wx:for="{{serviceTypeOptions}}"
+            wx:key="value"
+            bindtap="toggleServiceType"
+            data-value="{{item.value}}"
+          >
+            {{item.label}}
+          </view>
+        </view>
+      </view>
+
+      <!-- 自我介绍 -->
+      <view class="form-item">
+        <text class="label required">自我介绍</text>
+        <textarea 
+          class="textarea"
+          name="introduction"
+          placeholder="请简要介绍您的工作经历和专长（最少50字）"
+          value="{{formData.introduction}}"
+          bindinput="onIntroductionInput"
+          maxlength="500"
+        ></textarea>
+        <text class="word-count">{{formData.introduction.length}}/500</text>
+      </view>
+    </view>
+
+    <!-- 证件照片 -->
+    <view class="form-group">
+      <view class="group-title">证件照片</view>
+
+      <!-- 身份证正面 -->
+      <view class="form-item">
+        <text class="label required">身份证正面</text>
+        <view class="upload-box" bindtap="chooseImage" data-type="idCardFront">
+          <image 
+            wx:if="{{formData.idCardFront}}"
+            src="{{formData.idCardFront}}"
+            mode="aspectFit"
+          ></image>
+          <view class="upload-placeholder" wx:else>
+            <text class="icon-plus"></text>
+            <text class="upload-tip">上传身份证人像面</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 身份证反面 -->
+      <view class="form-item">
+        <text class="label required">身份证反面</text>
+        <view class="upload-box" bindtap="chooseImage" data-type="idCardBack">
+          <image 
+            wx:if="{{formData.idCardBack}}"
+            src="{{formData.idCardBack}}"
+            mode="aspectFit"
+          ></image>
+          <view class="upload-placeholder" wx:else>
+            <text class="icon-plus"></text>
+            <text class="upload-tip">上传身份证国徽面</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 健康证 -->
+      <view class="form-item">
+        <text class="label required">健康证</text>
+        <view class="upload-box" bindtap="chooseImage" data-type="healthCert">
+          <image 
+            wx:if="{{formData.healthCert}}"
+            src="{{formData.healthCert}}"
+            mode="aspectFit"
+          ></image>
+          <view class="upload-placeholder" wx:else>
+            <text class="icon-plus"></text>
+            <text class="upload-tip">上传健康证照片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button 
+      class="submit-btn"
+      form-type="submit"
+      loading="{{submitting}}"
+    >提交申请</button>
+  </form>
+</view> 

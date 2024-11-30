@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="login-box">
+    <!-- Logo区域 -->
+    <view class="logo-box">
+      <image class="logo" src="../../images/logo.png" mode="aspectFit"></image>
+      <view class="title">医疗陪诊管理平台</view>
+      <view class="subtitle">Medical Escort Management Platform</view>
+    </view>
+
+    <!-- 登录表单 -->
+    <view class="form-box">
+      <view class="form-item">
+        <view class="input-box">
+          <image class="icon" src="../../images/user.png"></image>
+          <input 
+            class="input"
+            type="text"
+            placeholder="请输入管理员账号"
+            value="{{username}}"
+            bindinput="handleUsernameInput"
+          />
+        </view>
+      </view>
+
+      <view class="form-item">
+        <view class="input-box">
+          <image class="icon" src="../../images/password.png"></image>
+          <input 
+            class="input"
+            type="password"
+            placeholder="请输入登录密码"
+            value="{{password}}"
+            bindinput="handlePasswordInput"
+          />
+        </view>
+      </view>
+
+      <button 
+        class="login-btn {{canLogin ? '' : 'disabled'}}"
+        loading="{{loading}}"
+        bindtap="handleLogin"
+        disabled="{{!canLogin}}"
+      >登录管理系统</button>
+    </view>
+
+    <!-- 底部版权 -->
+    <view class="footer">
+      <text>Copyright © 2024 医疗陪诊服务管理系统</text>
+      <text>All Rights Reserved</text>
+    </view>
+  </view>
+</view> 

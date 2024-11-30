@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="logo-box">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="title">陪诊员工作台</text>
+    <text class="subtitle">让服务更专业</text>
+  </view>
+
+  <view class="login-methods">
+    <button 
+      class="login-btn"
+      bindtap="handleLogin"
+      loading="{{loading}}"
+    >
+      <image class="icon" src="/images/wechat.png"></image>
+      <text>微信一键登录</text>
+    </button>
+  </view>
+
+  <view class="agreement">
+    <checkbox-group bindchange="onAgreementChange">
+      <label class="agreement-label">
+        <checkbox value="agree" checked="{{isAgree}}"/>
+        <text>我已阅读并同意</text>
+        <text class="link" bindtap="showAgreement">《陪诊员服务协议》</text>
+      </label>
+    </checkbox-group>
+  </view>
+</view> 

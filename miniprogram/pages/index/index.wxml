@@ -1,0 +1,133 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-box" bindtap="onSearchTap">
+      <text class="icon icon-search"></text>
+      <input 
+        class="search-input" 
+        placeholder="搜索医院、科室、陪诊员" 
+        placeholder-class="search-placeholder"
+        disabled
+      />
+    </view>
+  </view>
+
+  <!-- 轮播图 -->
+  <swiper class="banner" indicator-dots autoplay circular>
+    <swiper-item wx:for="{{banners}}" wx:key="id" bindtap="onBannerTap" data-id="{{item.id}}">
+      <image 
+        src="{{item.imageUrl}}" 
+        mode="aspectFill" 
+        class="banner-image"
+        binderror="onImageError"
+        data-type="banner"
+        data-index="{{index}}"
+      />
+    </swiper-item>
+  </swiper>
+
+  <!-- 服务分类 -->
+  <view class="service-types">
+    <view 
+      class="type-item" 
+      wx:for="{{serviceTypes}}" 
+      wx:key="id" 
+      bindtap="navigateToService" 
+      data-type="{{item.id}}"
+    >
+      <view class="type-icon">
+        <image src="{{item.icon}}" mode="aspectFit"/>
+      </view>
+      <text class="type-name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 热门医院 -->
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">热门医院</view>
+      <view class="more" bindtap="navigateToHospitals">
+        <text>查看更多</text>
+        <text class="icon icon-arrow-right"></text>
+      </view>
+    </view>
+    <view class="hospital-list">
+      <view 
+        class="hospital-item" 
+        wx:for="{{hospitals}}" 
+        wx:key="id" 
+        bindtap="navigateToHospital" 
+        data-id="{{item.id}}"
+      >
+        <image 
+          class="hospital-image" 
+          src="{{item.imageUrl}}" 
+          mode="aspectFill"
+          binderror="onImageError"
+          data-type="hospital"
+          data-index="{{index}}"
+        />
+        <view class="hospital-info">
+          <text class="hospital-name">{{item.name}}</text>
+          <text class="hospital-level">{{item.level}}</text>
+          <view class="hospital-address">
+            <text class="icon icon-location"></text>
+            <text>{{formatAddress(item.address)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐陪诊员 -->
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">推荐陪诊员</view>
+      <view class="more" bindtap="navigateToEscorts">
+        <text>查看更多</text>
+        <text class="icon icon-arrow-right"></text>
+      </view>
+    </view>
+    <view class="escort-list">
+      <view 
+        class="escort-item" 
+        wx:for="{{escorts}}" 
+        wx:key="id" 
+        bindtap="navigateToEscort" 
+        data-id="{{item.id}}"
+      >
+        <image 
+          class="escort-avatar" 
+          src="{{item.avatar}}" 
+          mode="aspectFill"
+          binderror="onImageError"
+          data-type="avatar"
+          data-index="{{index}}"
+        />
+        <view class="escort-info">
+          <text class="escort-name">{{item.name}}</text>
+          <view class="rating">
+            <view class="stars">
+              <image 
+                wx:for="{{5}}" 
+                wx:key="*this"
+                src="{{index < item.score ? '/images/star-active.png' : '/images/star.png'}}"
+                class="star-icon"
+              />
+            </view>
+            <text class="score">{{item.score}}分</text>
+            <text class="orders">已服务{{item.orderCount}}单</text>
+          </view>
+          <view class="tags">
+            <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+          </view>
+        </view>
+        <view class="price">
+          <text class="price-unit">¥</text>
+          <text class="price-amount">{{item.price}}</text>
+          <text class="price-per">/次</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

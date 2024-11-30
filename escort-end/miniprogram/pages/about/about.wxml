@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- Logo区域 -->
+  <view class="logo-section">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <view class="app-name">医诊助手</view>
+    <view class="version">Version {{version}}</view>
+  </view>
+
+  <!-- 功能介绍 -->
+  <view class="section">
+    <view class="section-title">平台介绍</view>
+    <view class="content">
+      医诊助手是一款专业的医疗陪诊服务平台，致力于为患者提供专业、贴心的就医陪护服务。我们严选专业陪诊员，提供全方位就医陪护服务，让看病更便捷，就医更安心。
+    </view>
+  </view>
+
+  <!-- 服务特色 -->
+  <view class="section">
+    <view class="section-title">服务特色</view>
+    <view class="feature-list">
+      <view class="feature-item">
+        <image class="feature-icon" src="/images/feature-1.png"></image>
+        <text class="feature-name">专业陪诊</text>
+        <text class="feature-desc">经验丰富的陪诊团队</text>
+      </view>
+      <view class="feature-item">
+        <image class="feature-icon" src="/images/feature-2.png"></image>
+        <text class="feature-name">安全可靠</text>
+        <text class="feature-desc">陪诊员实名认证</text>
+      </view>
+      <view class="feature-item">
+        <image class="feature-icon" src="/images/feature-3.png"></image>
+        <text class="feature-name">价格透明</text>
+        <text class="feature-desc">费用明码标价</text>
+      </view>
+      <view class="feature-item">
+        <image class="feature-icon" src="/images/feature-4.png"></image>
+        <text class="feature-name">保险保障</text>
+        <text class="feature-desc">全程保险保障</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系我们 -->
+  <view class="section">
+    <view class="section-title">联系我们</view>
+    <view class="contact-list">
+      <view class="contact-item" bindtap="copyText" data-text="{{phone}}">
+        <image class="icon" src="/images/phone.png"></image>
+        <text class="label">客服电话</text>
+        <text class="value">{{phone}}</text>
+        <text class="copy">复制</text>
+      </view>
+      <view class="contact-item" bindtap="copyText" data-text="{{email}}">
+        <image class="icon" src="/images/email.png"></image>
+        <text class="label">电子邮箱</text>
+        <text class="value">{{email}}</text>
+        <text class="copy">复制</text>
+      </view>
+      <view class="contact-item" bindtap="copyText" data-text="{{website}}">
+        <image class="icon" src="/images/website.png"></image>
+        <text class="label">官方网站</text>
+        <text class="value">{{website}}</text>
+        <text class="copy">复制</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部版权 -->
+  <view class="footer">
+    <text>Copyright © 2024 医诊助手</text>
+    <text>All Rights Reserved</text>
+  </view>
+</view> 

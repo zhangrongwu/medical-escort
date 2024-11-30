@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/escort-review/escort-review",
+    "pages/order-manage/order-manage",
+    "pages/statistics/statistics",
+    "pages/order-detail/order-detail",
+    "pages/escort-manage/escort-manage",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "医陪管理后台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1890ff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/escort-review/escort-review",
+        "text": "审核",
+        "iconPath": "images/review.png",
+        "selectedIconPath": "images/review_selected.png"
+      },
+      {
+        "pagePath": "pages/order-manage/order-manage",
+        "text": "订单",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order_selected.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "iconPath": "images/stats.png",
+        "selectedIconPath": "images/stats_selected.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+} 

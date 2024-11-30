@@ -1,0 +1,81 @@
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.modal-mask.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  width: 600rpx;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.modal-mask.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-header {
+  padding: 40rpx;
+  text-align: center;
+  border-bottom: 2rpx solid var(--border-color);
+}
+
+.modal-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.modal-body {
+  padding: 40rpx;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  display: flex;
+  border-top: 2rpx solid var(--border-color);
+}
+
+.modal-btn {
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  transition: all 0.3s;
+}
+
+.modal-btn:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-btn.confirm {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.modal-btn.cancel {
+  color: var(--text-secondary);
+  border-right: 2rpx solid var(--border-color);
+} 

@@ -1,0 +1,214 @@
+page {
+  /* 主色调 */
+  --primary-color: #2B5AED;
+  --primary-gradient: linear-gradient(135deg, #2B5AED, #1890FF);
+  
+  /* 辅助色 */
+  --success-color: #00B578;
+  --warning-color: #FF8F1F;
+  --danger-color: #FF3141;
+  
+  /* 中性色 */
+  --text-primary: #1A1A1A;
+  --text-regular: #666666;
+  --text-secondary: #999999;
+  --border-color: #EEEEEE;
+  --background: #F7F8FA;
+  
+  /* 投影 */
+  --shadow-sm: 0 4rpx 8rpx rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16rpx 48rpx rgba(0, 0, 0, 0.12);
+  
+  /* 圆角 */
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  
+  /* 动画 */
+  --transition-fast: all 0.2s ease;
+  --transition-base: all 0.3s ease;
+  --transition-slow: all 0.4s ease;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 通用按钮样式 */
+.btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 44rpx;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--primary-color);
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+}
+
+.btn-outline {
+  color: var(--primary-color);
+  border: 2rpx solid var(--primary-color);
+  background: rgba(24, 144, 255, 0.1);
+}
+
+/* 通用标签样式 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: var(--radius-sm);
+  font-size: 24rpx;
+  margin-right: 12rpx;
+}
+
+.tag-primary {
+  color: var(--primary-color);
+  background: rgba(43, 90, 237, 0.1);
+}
+
+.tag-success {
+  color: var(--success-color);
+  background: rgba(82, 196, 26, 0.1);
+}
+
+.tag-warning {
+  color: var(--warning-color);
+  background: rgba(250, 173, 20, 0.1);
+}
+
+.tag-danger {
+  color: var(--danger-color);
+  background: rgba(255, 77, 79, 0.1);
+}
+
+/* 通用列表样式 */
+.list-item {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-base);
+}
+
+.list-item:active {
+  transform: translateY(2rpx);
+  box-shadow: var(--shadow-sm);
+}
+
+.list-item .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-sm);
+}
+
+.list-content {
+  flex: 1;
+}
+
+.list-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12rpx;
+}
+
+.list-desc {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+/* 通用空状态 */
+.empty {
+  text-align: center;
+  padding: 60rpx 30rpx;
+  color: var(--text-light);
+}
+
+.empty image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.form-item {
+  margin-bottom: 40rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: var(--text-regular);
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  background: #F8F9FB;
+  border-radius: var(--radius-md);
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+}
+
+.form-input:focus {
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.badge {
+  min-width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border-radius: 16rpx;
+  padding: 0 8rpx;
+  font-size: 20rpx;
+  color: #fff;
+  background: var(--danger-color);
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 60rpx 0;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+  animation: rotate 1s linear infinite;
+}
+
+.empty {
+  text-align: center;
+  padding: 120rpx 40rpx;
+}
+
+.empty-icon {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+} 

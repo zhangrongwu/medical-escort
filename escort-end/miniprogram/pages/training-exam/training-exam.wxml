@@ -1,0 +1,54 @@
+<view class="container">
+  <!-- 顶部进度条 -->
+  <view class="progress-bar">
+    <view class="progress" style="width: {{(currentQuestion + 1) / examInfo.questions.length * 100}}%"></view>
+  </view>
+
+  <!-- 计时器 -->
+  <view class="timer">
+    <text class="icon icon-time"></text>
+    <text class="time-left">{{formatTimeLeft()}}</text>
+  </view>
+
+  <!-- 题目内容 -->
+  <view class="question-content">
+    <view class="question-number">第 {{currentQuestion + 1}}/{{examInfo.questions.length}} 题</view>
+    <view class="question-text">{{examInfo.questions[currentQuestion].content}}</view>
+    
+    <!-- 选项列表 -->
+    <view class="options">
+      <view 
+        class="option-item {{answers[currentQuestion] === index ? 'selected' : ''}}"
+        wx:for="{{examInfo.questions[currentQuestion].options}}"
+        wx:key="*this"
+        bindtap="selectAnswer"
+        data-index="{{index}}"
+      >
+        <text class="option-index">{{['A', 'B', 'C', 'D'][index]}}</text>
+        <text class="option-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <button 
+      class="nav-btn prev"
+      bindtap="prevQuestion"
+      disabled="{{currentQuestion === 0}}"
+    >上一题</button>
+    
+    <button 
+      class="nav-btn next"
+      bindtap="nextQuestion"
+      wx:if="{{currentQuestion < examInfo.questions.length - 1}}"
+    >下一题</button>
+    
+    <button 
+      class="submit-btn"
+      type="primary"
+      bindtap="submitExam"
+      wx:if="{{currentQuestion === examInfo.questions.length - 1}}"
+    >提交答案</button>
+  </view>
+</view> 

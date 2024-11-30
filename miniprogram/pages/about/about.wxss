@@ -1,0 +1,91 @@
+.container {
+  padding: 30rpx;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}
+
+.app-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.version {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.content-section {
+  margin-top: 40rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 8rpx solid #1296db;
+}
+
+.section-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 40rpx;
+}
+
+.contact-list {
+  margin-bottom: 40rpx;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.label {
+  color: #333;
+  width: 160rpx;
+}
+
+.value {
+  flex: 1;
+  color: #666;
+}
+
+.copy {
+  color: #1296db;
+  padding: 4rpx 20rpx;
+  border: 1rpx solid #1296db;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+}
+
+.footer {
+  margin-top: 80rpx;
+  text-align: center;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.footer text {
+  display: block;
+  line-height: 1.6;
+} 

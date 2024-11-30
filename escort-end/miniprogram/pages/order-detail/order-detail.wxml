@@ -1,0 +1,146 @@
+<view class="container">
+  <!-- 订单状态 -->
+  <view class="status-card">
+    <view class="status-header">
+      <text class="status-text">{{ORDER_STATUS_TEXT[order.status]}}</text>
+      <text class="order-no">订单号：{{order.orderNo}}</text>
+    </view>
+    <view class="status-timeline">
+      <view class="timeline-item {{getTimelineStatus('PAID')}}" wx:if="{{order.statusInfo.PAIDTime}}">
+        <text class="time">{{formatTime(order.statusInfo.PAIDTime)}}</text>
+        <text class="label">订单支付</text>
+      </view>
+      <view class="timeline-item {{getTimelineStatus('ACCEPTED')}}" wx:if="{{order.statusInfo.ACCEPTEDTime}}">
+        <text class="time">{{formatTime(order.statusInfo.ACCEPTEDTime)}}</text>
+        <text class="label">接单</text>
+      </view>
+      <view class="timeline-item {{getTimelineStatus('ARRIVED')}}" wx:if="{{order.statusInfo.ARRIVEDTime}}">
+        <text class="time">{{formatTime(order.statusInfo.ARRIVEDTime)}}</text>
+        <text class="label">到达医院</text>
+      </view>
+      <view class="timeline-item {{getTimelineStatus('PROCESSING')}}" wx:if="{{order.statusInfo.PROCESSINGTime}}">
+        <text class="time">{{formatTime(order.statusInfo.PROCESSINGTime)}}</text>
+        <text class="label">开始服务</text>
+      </view>
+      <view class="timeline-item {{getTimelineStatus('COMPLETED')}}" wx:if="{{order.statusInfo.COMPLETEDTime}}">
+        <text class="time">{{formatTime(order.statusInfo.COMPLETEDTime)}}</text>
+        <text class="label">完成服务</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 就医信息 -->
+  <view class="info-card">
+    <view class="card-title">就医信息</view>
+    <view class="info-item">
+      <text class="label">就医人</text>
+      <text class="value">{{order.patientInfo.name}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">联系电话</text>
+      <text class="value">{{order.patientInfo.phone}}</text>
+      <button class="call-btn" bindtap="makePhoneCall" data-phone="{{order.patientInfo.phone}}">
+        <text class="icon icon-phone"></text>
+      </button>
+    </view>
+    <view class="info-item">
+      <text class="label">就医医院</text>
+      <text class="value">{{order.hospitalInfo.hospitalName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">就诊科室</text>
+      <text class="value">{{order.hospitalInfo.departmentName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">预约时间</text>
+      <text class="value">{{order.serviceInfo.appointmentDate}} {{order.serviceInfo.timeSlot}}</text>
+    </view>
+    <view class="hospital-location" bindtap="navigateToHospital">
+      <image class="map" src="{{order.hospitalInfo.mapUrl}}"></image>
+      <view class="location-info">
+        <text class="address">{{order.hospitalInfo.address}}</text>
+        <text class="distance" wx:if="{{distance}}">距您{{distance}}km</text>
+      </view>
+      <text class="icon icon-arrow"></text>
+    </view>
+  </view>
+
+  <!-- 服务信息 -->
+  <view class="info-card">
+    <view class="card-title">服务信息</view>
+    <view class="info-item">
+      <text class="label">服务类型</text>
+      <text class="value">{{order.serviceInfo.serviceType}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">预计时长</text>
+      <text class="value">{{order.serviceInfo.duration}}小时</text>
+    </view>
+    <view class="info-item" wx:if="{{order.serviceInfo.requirements}}">
+      <text class="label">特殊要求</text>
+      <text class="value">{{order.serviceInfo.requirements}}</text>
+    </view>
+  </view>
+
+  <!-- 服务记录 -->
+  <view class="info-card" wx:if="{{order.serviceRecord}}">
+    <view class="card-title">服务记录</view>
+    <view class="service-notes">
+      <view class="note-item" wx:for="{{order.serviceRecord.serviceNotes}}" wx:key="index">
+        <text class="time">{{formatTime(item.time)}}</text>
+        <text class="content">{{item.content}}</text>
+        <view class="photos" wx:if="{{item.photos.length > 0}}">
+          <image 
+            class="photo" 
+            wx:for="{{item.photos}}" 
+            wx:key="*this" 
+            wx:for-item="photo"
+            src="{{photo}}"
+            mode="aspectFill"
+            bindtap="previewImage"
+            data-urls="{{item.photos}}"
+            data-current="{{photo}}"
+          ></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单金额 -->
+  <view class="info-card">
+    <view class="card-title">订单金额</view>
+    <view class="price-item">
+      <text class="label">陪诊费用</text>
+      <text class="value">¥{{order.paymentInfo.escortAmount}}</text>
+    </view>
+    <view class="price-item">
+      <text class="label">保险费用</text>
+      <text class="value">¥{{order.paymentInfo.insuranceAmount}}</text>
+    </view>
+    <view class="price-item">
+      <text class="label">平台服务费</text>
+      <text class="value">¥{{order.paymentInfo.platformFee}}</text>
+    </view>
+    <view class="price-total">
+      <text class="label">合计金额</text>
+      <text class="value">¥{{order.paymentInfo.totalAmount}}</text>
+    </view>
+  </view>
+
+  <!-- 底部操作按钮 -->
+  <view class="bottom-btns" wx:if="{{showActionButtons}}">
+    <block wx:if="{{order.status === 'PAID'}}">
+      <button class="btn btn-primary" bindtap="acceptOrder">接单</button>
+    </block>
+    <block wx:if="{{order.status === 'ACCEPTED'}}">
+      <button class="btn btn-primary" bindtap="arrivedHospital">到达医院</button>
+    </block>
+    <block wx:if="{{order.status === 'ARRIVED'}}">
+      <button class="btn btn-primary" bindtap="startService">开始服务</button>
+    </block>
+    <block wx:if="{{order.status === 'PROCESSING'}}">
+      <button class="btn btn-default" bindtap="addServiceNote">添加记录</button>
+      <button class="btn btn-primary" bindtap="completeService">完成服务</button>
+    </block>
+  </view>
+</view> 

@@ -1,0 +1,173 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding-bottom: 120rpx;
+}
+
+/* 培训信息 */
+.training-info {
+  background: #fff;
+  padding: 40rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 进度条 */
+.progress-section {
+  background: #fff;
+  padding: 40rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.progress-bar {
+  height: 16rpx;
+  background: #f0f0f0;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #1890ff, #36cfc9);
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  text-align: right;
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 章节列表 */
+.sections {
+  background: #fff;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-item {
+  margin-bottom: 30rpx;
+}
+
+.section-item:last-child {
+  margin-bottom: 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  transition: all 0.3s;
+}
+
+.section-header:active {
+  transform: scale(0.98);
+}
+
+.section-item.active .section-header {
+  background: rgba(24, 144, 255, 0.1);
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.section-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.duration {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.section-content {
+  padding: 30rpx;
+  background: #fff;
+  border: 2rpx solid rgba(24, 144, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 12rpx 12rpx;
+}
+
+.section-content video {
+  width: 100%;
+  border-radius: 12rpx;
+}
+
+/* 底部按钮 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 40rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.exam-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 44rpx;
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.exam-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 8rpx rgba(24, 144, 255, 0.1);
+}
+
+.exam-btn[disabled] {
+  background: #f5f5f5;
+  color: #999;
+  box-shadow: none;
+} 

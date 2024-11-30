@@ -1,0 +1,9 @@
+{
+  "name": "setDefaultAddress",
+  "version": "1.0.0",
+  "description": "设置默认地址",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+} 

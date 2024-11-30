@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="result-box">
+    <image class="status-icon" src="/images/submit-success.png"></image>
+    <text class="title">提交成功</text>
+    <text class="desc">您的注册申请已提交，我们将在1-3个工作日内完成审核</text>
+    
+    <view class="info-list">
+      <view class="info-item">
+        <text class="label">审核进度查询</text>
+        <text class="value">请前往"我的-注册状态"查看</text>
+      </view>
+      <view class="info-item">
+        <text class="label">审核通过通知</text>
+        <text class="value">我们将通过短信通知您审核结果</text>
+      </view>
+      <view class="info-item">
+        <text class="label">客服咨询</text>
+        <text class="value">工作日 9:00-18:00</text>
+      </view>
+    </view>
+
+    <view class="btn-group">
+      <button class="primary-btn" bindtap="checkStatus">查看审核状态</button>
+      <button class="outline-btn" open-type="contact">联系客服</button>
+    </view>
+  </view>
+
+  <!-- 温馨提示 -->
+  <view class="tips-box">
+    <view class="tips-title">
+      <text class="icon">📌</text>
+      <text>温馨提示</text>
+    </view>
+    <view class="tips-content">
+      <text class="tip-item">• 请确保提交的证件照片清晰完整</text>
+      <text class="tip-item">• 审核通过后即可开始接单</text>
+      <text class="tip-item">• 如有疑问请联系在线客服</text>
+    </view>
+  </view>
+</view> 

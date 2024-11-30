@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="hospital-header">
+    <image class="hospital-image" src="{{hospital.imageUrl}}" mode="aspectFill"></image>
+    <view class="hospital-info">
+      <text class="name">{{hospital.name}}</text>
+      <text class="level">{{hospital.level}}</text>
+      <view class="address" bindtap="openLocation">
+        <text>{{hospital.address}}</text>
+        <image class="location-icon" src="/images/location.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">医院介绍</view>
+    <text class="introduction">{{hospital.introduction}}</text>
+  </view>
+
+  <view class="section">
+    <view class="section-title">科室列表</view>
+    <view class="department-list">
+      <view class="department-item" 
+        wx:for="{{hospital.departments}}" 
+        wx:key="id"
+        bindtap="selectDepartment"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+      >
+        <text>{{item.name}}</text>
+        <text class="count">{{item.doctorCount}}名医生</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">推荐陪诊员</view>
+    <view class="escort-list">
+      <view class="escort-item" 
+        wx:for="{{escorts}}" 
+        wx:key="id"
+        bindtap="navigateToEscort"
+        data-id="{{item.id}}"
+      >
+        <image class="avatar" src="{{item.avatar}}"></image>
+        <view class="escort-info">
+          <text class="name">{{item.name}}</text>
+          <view class="rating">
+            <text class="score">{{item.score}}分</text>
+            <text class="orders">已服务{{item.orderCount}}单</text>
+          </view>
+          <text class="experience">从业{{item.experience}}年</text>
+        </view>
+        <view class="price">
+          <text class="amount">¥{{item.price}}</text>
+          <text class="unit">/次</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="contact-btn" open-type="contact">在线咨询</button>
+    <button class="book-btn" type="primary" bindtap="startBooking">立即预约</button>
+  </view>
+</view> 

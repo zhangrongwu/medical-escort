@@ -1,0 +1,78 @@
+<view class="container">
+  <!-- 标签栏 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="*this"
+      bindtap="switchTab"
+      data-tab="{{index}}"
+    >
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 培训列表 -->
+  <scroll-view 
+    class="training-list"
+    scroll-y
+    refresher-enabled
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="onRefresh"
+    bindscrolltolower="onLoadMore"
+  >
+    <view class="training-item" wx:for="{{trainings}}" wx:key="_id">
+      <view class="training-header">
+        <text class="title">{{item.title}}</text>
+        <text class="status {{item.isCompleted ? 'completed' : ''}}">
+          {{item.isCompleted ? '已完成' : '待学习'}}
+        </text>
+      </view>
+
+      <view class="training-content">
+        <view class="info-row">
+          <text class="label">培训类型：</text>
+          <text class="value">{{item.type}}</text>
+        </view>
+        <view class="info-row">
+          <text class="label">培训时长：</text>
+          <text class="value">{{item.duration}}分钟</text>
+        </view>
+        <view class="info-row">
+          <text class="label">开始时间：</text>
+          <text class="value">{{item.startTime}}</text>
+        </view>
+        <view class="info-row">
+          <text class="label">截止时间：</text>
+          <text class="value">{{item.endTime}}</text>
+        </view>
+      </view>
+
+      <view class="training-footer">
+        <view class="score" wx:if="{{item.isCompleted}}">
+          <text class="label">考试得分：</text>
+          <text class="value {{item.score >= 60 ? 'pass' : 'fail'}}">{{item.score}}分</text>
+        </view>
+        <button 
+          class="start-btn {{item.isCompleted ? 'disabled' : ''}}" 
+          bindtap="startTraining" 
+          data-id="{{item._id}}"
+          disabled="{{item.isCompleted}}"
+        >
+          {{item.isCompleted ? '已完成' : '开始学习'}}
+        </button>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-tip" wx:if="{{trainings.length === 0}}">
+      <image src="/images/empty.png"></image>
+      <text>暂无{{currentTab === 0 ? '待学习' : '已完成'}}的培训</text>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="loading-more" wx:if="{{hasMore}}">
+      <text>加载中...</text>
+    </view>
+  </scroll-view>
+</view> 

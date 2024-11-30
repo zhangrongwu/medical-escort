@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="escort-header">
+    <image class="avatar" src="{{escort.avatar}}" mode="aspectFill"></image>
+    <view class="basic-info">
+      <view class="name-gender">
+        <text class="name">{{escort.name}}</text>
+        <text class="gender">{{escort.gender}} {{escort.age}}岁</text>
+      </view>
+      <view class="rating">
+        <text class="score">{{escort.score}}分</text>
+        <text class="orders">已服务{{escort.orderCount}}单</text>
+      </view>
+      <view class="tags">
+        <text class="tag" wx:for="{{escort.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">个人简介</view>
+    <text class="introduction">{{escort.introduction}}</text>
+  </view>
+
+  <view class="section">
+    <view class="section-title">服务信息</view>
+    <view class="service-info">
+      <view class="info-item">
+        <text class="label">从业年限</text>
+        <text class="value">{{escort.experience}}年</text>
+      </view>
+      <view class="info-item">
+        <text class="label">服务医院</text>
+        <text class="value">{{escort.serviceHospitals.join('、')}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">服务时间</text>
+        <text class="value">{{escort.serviceTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">服务评价</text>
+      <text class="total">共{{evaluations.length}}条评价</text>
+    </view>
+    <view class="evaluation-list">
+      <view class="evaluation-item" wx:for="{{evaluations}}" wx:key="_id">
+        <image class="user-avatar" src="{{item.userInfo.avatarUrl}}"></image>
+        <view class="evaluation-content">
+          <view class="user-info">
+            <text class="user-name">{{item.userInfo.nickName}}</text>
+            <text class="eval-time">{{item.createTime}}</text>
+          </view>
+          <view class="score-stars">
+            <image 
+              wx:for="{{5}}" 
+              wx:key="*this"
+              src="{{index < item.score ? '/images/star-active.png' : '/images/star.png'}}"
+              class="star"
+            ></image>
+          </view>
+          <text class="eval-text">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="price-info">
+      <text class="label">服务费用</text>
+      <view class="price">
+        <text class="amount">¥{{escort.price}}</text>
+        <text class="unit">/次</text>
+      </view>
+    </view>
+    <button class="book-btn" type="primary" bindtap="startBooking">立即预约</button>
+  </view>
+</view> 

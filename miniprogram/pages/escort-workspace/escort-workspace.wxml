@@ -1,0 +1,108 @@
+<view class="container">
+  <!-- 陪诊员信息卡片 -->
+  <view class="escort-card">
+    <image class="avatar" src="{{escortInfo.avatar}}"></image>
+    <view class="info">
+      <text class="name">{{escortInfo.name}}</text>
+      <view class="stats">
+        <view class="stat-item">
+          <text class="count">{{escortInfo.orderCount || 0}}</text>
+          <text class="label">服务订单</text>
+        </view>
+        <view class="stat-item">
+          <text class="count">{{escortInfo.score || 5.0}}</text>
+          <text class="label">服务评分</text>
+        </view>
+        <view class="stat-item">
+          <text class="count">{{escortInfo.income || '0.00'}}</text>
+          <text class="label">总收入</text>
+        </view>
+      </view>
+    </view>
+    <view class="status-switch">
+      <switch checked="{{isOnline}}" bindchange="toggleOnlineStatus"/>
+      <text>{{isOnline ? '接单中' : '休息中'}}</text>
+    </view>
+  </view>
+
+  <!-- 订单列表标签页 -->
+  <view class="tabs">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="index"
+      bindtap="switchTab"
+      data-index="{{index}}"
+    >
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 新订单列表 -->
+  <view class="order-list" wx:if="{{currentTab === 0}}">
+    <view class="order-item" wx:for="{{newOrders}}" wx:key="_id">
+      <view class="order-header">
+        <text class="order-no">订单号：{{item.orderNo}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+      <view class="order-content">
+        <view class="hospital-info">
+          <text class="name">{{item.hospitalName}}</text>
+          <text class="department">{{item.departmentName}}</text>
+        </view>
+        <view class="service-info">
+          <text class="date">{{item.appointmentDate}} {{item.timeSlot}}</text>
+          <text class="services">{{item.serviceNames}}</text>
+        </view>
+        <view class="price-info">
+          <text class="label">服务费：</text>
+          <text class="price">¥{{item.totalPrice}}</text>
+        </view>
+      </view>
+      <view class="order-footer">
+        <button 
+          class="btn btn-primary" 
+          bindtap="acceptOrder" 
+          data-id="{{item._id}}"
+        >接单</button>
+      </view>
+    </view>
+    <view class="empty" wx:if="{{newOrders.length === 0}}">
+      <image src="/images/empty.png"></image>
+      <text>暂无新订单</text>
+    </view>
+  </view>
+
+  <!-- 进行中订单列表 -->
+  <view class="order-list" wx:if="{{currentTab === 1}}">
+    <view class="order-item" wx:for="{{processingOrders}}" wx:key="_id">
+      <!-- 订单内容结构类似上面 -->
+      <view class="order-footer">
+        <button 
+          class="btn btn-default" 
+          bindtap="viewOrderDetail" 
+          data-id="{{item._id}}"
+        >查看详情</button>
+        <button 
+          class="btn btn-primary" 
+          bindtap="completeOrder" 
+          data-id="{{item._id}}"
+        >完成服务</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 历史订单列表 -->
+  <view class="order-list" wx:if="{{currentTab === 2}}">
+    <view class="order-item" wx:for="{{historyOrders}}" wx:key="_id">
+      <!-- 订单内容结构类似上面 -->
+      <view class="order-footer">
+        <button 
+          class="btn btn-default" 
+          bindtap="viewOrderDetail" 
+          data-id="{{item._id}}"
+        >查看详情</button>
+      </view>
+    </view>
+  </view>
+</view> 

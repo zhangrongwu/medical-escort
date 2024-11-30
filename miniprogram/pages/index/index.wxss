@@ -1,0 +1,298 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding-bottom: 120rpx;
+}
+
+/* 搜索栏 */
+.search-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20rpx 30rpx;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-input-box {
+  height: 72rpx;
+  background: #f5f6f7;
+  border-radius: 36rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  transition: all 0.3s;
+}
+
+.search-input-box:active {
+  transform: scale(0.98);
+  background: #eff0f1;
+}
+
+.search-icon {
+  font-size: 32rpx;
+  color: #999;
+  margin-right: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 轮播图 */
+.banner {
+  margin-top: 112rpx;
+  height: 320rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 服务分类 */
+.service-types {
+  margin: 30rpx;
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30rpx;
+}
+
+.type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.type-icon {
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+  transition: all 0.3s;
+}
+
+.type-icon:active {
+  transform: scale(0.95);
+}
+
+.type-icon image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.type-name {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 内容区块 */
+.section {
+  margin: 30rpx;
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  padding-left: 24rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 32rpx;
+  background: linear-gradient(135deg, #1890ff, #36cfc9);
+  border-radius: 4rpx;
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.more:active {
+  transform: scale(0.95);
+}
+
+/* 医院列表 */
+.hospital-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.hospital-item {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  transition: all 0.3s;
+}
+
+.hospital-item:active {
+  transform: scale(0.98);
+}
+
+.hospital-image {
+  width: 180rpx;
+  height: 140rpx;
+  border-radius: 12rpx;
+  margin-right: 24rpx;
+}
+
+.hospital-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hospital-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.hospital-level {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  margin-bottom: 12rpx;
+}
+
+.hospital-address {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 陪诊员列表 */
+.escort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.escort-item {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  transition: all 0.3s;
+}
+
+.escort-item:active {
+  transform: scale(0.98);
+}
+
+.escort-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 24rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.escort-info {
+  flex: 1;
+}
+
+.escort-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.score {
+  font-size: 26rpx;
+  color: #ff4d4f;
+  margin-right: 16rpx;
+}
+
+.orders {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.tags {
+  display: flex;
+  gap: 12rpx;
+}
+
+.tag {
+  font-size: 24rpx;
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.price {
+  text-align: right;
+}
+
+.price-unit {
+  font-size: 24rpx;
+  color: #ff4d4f;
+}
+
+.price-amount {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.price-per {
+  font-size: 24rpx;
+  color: #999;
+} 

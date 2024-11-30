@@ -1,0 +1,323 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-header {
+  display: flex;
+  background: #fff;
+  padding: 20rpx 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.tab-item.active {
+  color: #1296db;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #1296db;
+}
+
+.order-list {
+  flex: 1;
+  background: #f6f6f6;
+  padding: 20rpx;
+}
+
+.order-item {
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.order-no {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.order-status {
+  font-size: 26rpx;
+}
+
+.order-status.UNPAID { color: #ff4d4f; }
+.order-status.PAID { color: #1296db; }
+.order-status.PROCESSING { color: #52c41a; }
+.order-status.FINISHED { color: #666; }
+.order-status.CANCELLED { color: #999; }
+
+.order-content {
+  padding: 20rpx;
+}
+
+.hospital-info {
+  margin-bottom: 16rpx;
+}
+
+.hospital-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.department {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.appointment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.date, .patient {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.service-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.price {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+  padding: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.btn {
+  margin: 0;
+  padding: 0 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  border-radius: 30rpx;
+}
+
+.cancel-btn {
+  background: #f8f8f8;
+  color: #666;
+}
+
+.pay-btn {
+  background: #1296db;
+  color: #fff;
+}
+
+.evaluate-btn {
+  background: #52c41a;
+  color: #fff;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.empty-state image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-state text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 搜索栏 */
+.search-bar {
+  padding: 20rpx 30rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.search-input {
+  flex: 1;
+  height: 60rpx;
+  background: #f6f6f6;
+  border-radius: 30rpx;
+  padding: 0 20rpx 0 60rpx;
+  font-size: 26rpx;
+  margin-left: -40rpx;
+}
+
+/* 筛选栏 */
+.filter-bar {
+  display: flex;
+  padding: 20rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.filter-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.filter-item .arrow {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+
+/* 弹窗样式 */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.popup-header text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 日期选择器 */
+.date-range {
+  margin-bottom: 30rpx;
+}
+
+.date-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.date-item .label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.date-item .value {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 状态选择器 */
+.status-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.status-item {
+  padding: 16rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #f6f6f6;
+}
+
+.status-item.active {
+  color: #fff;
+  background: #1296db;
+}
+
+/* 弹窗底部按钮 */
+.popup-footer {
+  display: flex;
+  gap: 20rpx;
+}
+
+.popup-footer button {
+  flex: 1;
+  margin: 0;
+}
+
+.reset-btn {
+  background: #f6f6f6;
+  color: #666;
+} 

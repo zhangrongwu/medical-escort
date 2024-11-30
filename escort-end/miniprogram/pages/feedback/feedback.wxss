@@ -1,0 +1,173 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding: 30rpx;
+  padding-bottom: calc(30rpx + env(safe-area-inset-bottom));
+}
+
+/* 区块样式 */
+.section {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+/* 问题类型 */
+.type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.type-item {
+  padding: 16rpx 30rpx;
+  background: #F5F7FA;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+  transition: all 0.3s ease;
+}
+
+.type-item.active {
+  background: #E6F7FF;
+  color: #1890FF;
+}
+
+/* 问题描述 */
+.textarea-box {
+  position: relative;
+  background: #F5F7FA;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.feedback-input {
+  width: 100%;
+  height: 240rpx;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.placeholder {
+  color: #999999;
+}
+
+.word-count {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 图片上传 */
+.upload-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.image-item {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.delete-btn {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 24rpx;
+}
+
+.upload-btn {
+  width: 160rpx;
+  height: 160rpx;
+  background: #F5F7FA;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 12rpx;
+}
+
+.upload-btn text {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 联系方式 */
+.contact-input {
+  height: 88rpx;
+  background: #F5F7FA;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: linear-gradient(135deg, #1890FF 0%, #3CA9FF 100%);
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 60rpx 0 30rpx;
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.submit-btn.disabled {
+  background: #CCCCCC;
+  box-shadow: none;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 8rpx rgba(24, 144, 255, 0.1);
+}
+
+/* 提示文本 */
+.tips {
+  text-align: center;
+}
+
+.tips text {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 1.8;
+} 

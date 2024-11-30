@@ -1,0 +1,122 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #EBF3FB 0%, #F7FAFD 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60rpx;
+  position: relative;
+}
+
+.login-box {
+  width: 100%;
+  margin-top: 120rpx;
+}
+
+/* Logo区域 */
+.logo-box {
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+
+.logo {
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+  letter-spacing: 2rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #666666;
+  letter-spacing: 1rpx;
+}
+
+/* 表单区域 */
+.form-box {
+  width: 100%;
+}
+
+.form-item {
+  margin-bottom: 40rpx;
+}
+
+.input-box {
+  height: 100rpx;
+  background: #FFFFFF;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+  box-shadow: 0 8rpx 24rpx rgba(24, 144, 255, 0.1);
+  transform: translateY(-2rpx);
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.input {
+  flex: 1;
+  height: 100%;
+  font-size: 30rpx;
+  color: #333333;
+}
+
+/* 登录按钮 */
+.login-btn {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: linear-gradient(135deg, #1890FF 0%, #3CA9FF 100%);
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 60rpx;
+  box-shadow: 0 8rpx 24rpx rgba(24, 144, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.login-btn.disabled {
+  background: #CCCCCC;
+  box-shadow: none;
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+
+.login-btn:not(.disabled):active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 12rpx rgba(24, 144, 255, 0.1);
+}
+
+/* 底部版权 */
+.footer {
+  position: absolute;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.footer text {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 1.8;
+} 

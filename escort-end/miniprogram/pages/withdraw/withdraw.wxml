@@ -1,0 +1,99 @@
+<view class="container">
+  <!-- 提现金额 -->
+  <view class="amount-section">
+    <view class="balance-info">
+      <text class="label">可提现金额</text>
+      <text class="balance">{{balance}}元</text>
+    </view>
+    <view class="input-box">
+      <text class="currency">¥</text>
+      <input 
+        class="amount-input"
+        type="digit"
+        placeholder="请输入提现金额"
+        value="{{amount}}"
+        bindinput="onAmountInput"
+      />
+    </view>
+    <view class="quick-amount">
+      <text 
+        class="quick-btn {{amount === balance ? 'active' : ''}}"
+        bindtap="setFullAmount"
+      >全部提现</text>
+    </view>
+  </view>
+
+  <!-- 提现到 -->
+  <view class="withdraw-to">
+    <view class="section-title">提现到</view>
+    <view class="bank-card" bindtap="selectCard">
+      <block wx:if="{{selectedCard}}">
+        <image class="bank-icon" src="{{selectedCard.bankIcon}}"></image>
+        <view class="card-info">
+          <text class="bank-name">{{selectedCard.bankName}}</text>
+          <text class="card-number">尾号{{selectedCard.cardNumber}}</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="add-card">
+          <image class="add-icon" src="/images/add-card.png"></image>
+          <text>添加银行卡</text>
+        </view>
+      </block>
+      <image class="arrow" src="/images/arrow-right.png"></image>
+    </view>
+  </view>
+
+  <!-- 提现说明 -->
+  <view class="withdraw-tips">
+    <view class="section-title">提现说明</view>
+    <view class="tips-content">
+      <view class="tip-item">1. 提现金额最低1元</view>
+      <view class="tip-item">2. 每日可提现3次</view>
+      <view class="tip-item">3. 提现将于T+1日到账</view>
+      <view class="tip-item">4. 如遇问题请联系客服</view>
+    </view>
+  </view>
+
+  <!-- 提现按钮 -->
+  <button 
+    class="submit-btn {{canSubmit ? '' : 'disabled'}}"
+    bindtap="handleWithdraw"
+    disabled="{{!canSubmit}}"
+  >确认提现</button>
+
+  <!-- 底部安全提示 -->
+  <view class="safety-tips">
+    <image class="safety-icon" src="/images/safety.png"></image>
+    <text>银行级别安全保障</text>
+  </view>
+</view>
+
+<!-- 提现确认弹窗 -->
+<view class="confirm-dialog {{showConfirm ? 'show' : ''}}">
+  <view class="dialog-mask" bindtap="hideConfirm"></view>
+  <view class="dialog-content">
+    <view class="dialog-header">
+      <text class="dialog-title">确认提现</text>
+      <view class="close-btn" bindtap="hideConfirm">×</view>
+    </view>
+    <view class="confirm-info">
+      <view class="info-item">
+        <text class="label">提现金额</text>
+        <text class="value">¥{{amount}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">到账银行</text>
+        <text class="value">{{selectedCard.bankName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">预计到账</text>
+        <text class="value">预计24小时内到账</text>
+      </view>
+    </view>
+    <button 
+      class="confirm-btn"
+      bindtap="confirmWithdraw"
+    >确认提现</button>
+  </view>
+</view> 

@@ -1,0 +1,158 @@
+<view class="container">
+  <view class="header">
+    <text class="title">陪诊员注册</text>
+    <text class="subtitle">请填写真实信息，我们将在1-3个工作日内完成审核</text>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="section">
+    <view class="section-title">基本信息</view>
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input 
+        class="input" 
+        placeholder="请输入真实姓名"
+        value="{{formData.name}}"
+        bindinput="onNameInput"
+      />
+    </view>
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker 
+        mode="selector" 
+        range="{{genderOptions}}"
+        value="{{formData.gender}}"
+        bindchange="onGenderChange"
+      >
+        <view class="picker">{{genderOptions[formData.gender] || '请选择性别'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">年龄</text>
+      <input 
+        class="input" 
+        type="number"
+        placeholder="请输入年龄"
+        value="{{formData.age}}"
+        bindinput="onAgeInput"
+      />
+    </view>
+    <view class="form-item">
+      <text class="label">身份证号</text>
+      <input 
+        class="input" 
+        type="idcard"
+        placeholder="请输入身份证号"
+        value="{{formData.idCard}}"
+        bindinput="onIdCardInput"
+      />
+    </view>
+  </view>
+
+  <!-- 工作经验 -->
+  <view class="section">
+    <view class="section-title">工作经验</view>
+    <view class="form-item">
+      <text class="label">工作年限</text>
+      <input 
+        class="input" 
+        type="number"
+        placeholder="请输入工作年限"
+        value="{{formData.workYears}}"
+        bindinput="onWorkYearsInput"
+      />
+    </view>
+    <view class="form-item">
+      <text class="label">专业背景</text>
+      <picker 
+        mode="selector" 
+        range="{{backgroundOptions}}"
+        value="{{formData.background}}"
+        bindchange="onBackgroundChange"
+      >
+        <view class="picker">{{backgroundOptions[formData.background] || '请选择专业背景'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">工作经历</text>
+      <textarea 
+        class="textarea" 
+        placeholder="请简要描述您的工作经历"
+        value="{{formData.experience}}"
+        bindinput="onExperienceInput"
+      ></textarea>
+    </view>
+  </view>
+
+  <!-- 证件照片 -->
+  <view class="section">
+    <view class="section-title">证件照片</view>
+    <view class="upload-group">
+      <view class="upload-item">
+        <text class="upload-label">身份证正面</text>
+        <view class="upload-box" bindtap="chooseImage" data-type="idCardFront">
+          <image wx:if="{{formData.idCardFront}}" src="{{formData.idCardFront}}" mode="aspectFit"></image>
+          <view wx:else class="upload-placeholder">
+            <text class="icon">+</text>
+            <text>上传照片</text>
+          </view>
+        </view>
+      </view>
+      <view class="upload-item">
+        <text class="upload-label">身份证反面</text>
+        <view class="upload-box" bindtap="chooseImage" data-type="idCardBack">
+          <image wx:if="{{formData.idCardBack}}" src="{{formData.idCardBack}}" mode="aspectFit"></image>
+          <view wx:else class="upload-placeholder">
+            <text class="icon">+</text>
+            <text>上传照片</text>
+          </view>
+        </view>
+      </view>
+      <view class="upload-item">
+        <text class="upload-label">健康证</text>
+        <view class="upload-box" bindtap="chooseImage" data-type="healthCert">
+          <image wx:if="{{formData.healthCert}}" src="{{formData.healthCert}}" mode="aspectFit"></image>
+          <view wx:else class="upload-placeholder">
+            <text class="icon">+</text>
+            <text>上传照片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务设置 -->
+  <view class="section">
+    <view class="section-title">服务设置</view>
+    <view class="form-item">
+      <text class="label">服务区域</text>
+      <picker 
+        mode="region" 
+        value="{{formData.serviceArea}}"
+        bindchange="onServiceAreaChange"
+      >
+        <view class="picker">{{formData.serviceArea[0] || '请选择服务区域'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="label">服务价格</text>
+      <input 
+        class="input" 
+        type="digit"
+        placeholder="请输入每次服务价格"
+        value="{{formData.price}}"
+        bindinput="onPriceInput"
+      />
+      <text class="unit">元/次</text>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class="submit-btn" type="primary" bindtap="submitRegistration">提交申请</button>
+
+  <!-- 提示信息 -->
+  <view class="tips">
+    <text>提交即代表同意</text>
+    <text class="link" bindtap="showAgreement">《陪诊员服务协议》</text>
+  </view>
+</view> 

@@ -1,0 +1,66 @@
+.container {
+  padding: 30rpx;
+  background: #f6f6f6;
+  min-height: 100vh;
+}
+
+.patient-list {
+  margin-bottom: 40rpx;
+}
+
+.patient-item {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patient-info {
+  flex: 1;
+}
+
+.name-gender {
+  margin-bottom: 10rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.gender {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.id-card, .phone {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.operation {
+  display: flex;
+  gap: 30rpx;
+}
+
+.edit, .delete {
+  font-size: 26rpx;
+  color: #1296db;
+}
+
+.delete {
+  color: #ff4d4f;
+}
+
+.add-btn {
+  width: 90%;
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+} 

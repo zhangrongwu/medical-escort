@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="order-info">
+    <view class="price-section">
+      <text class="currency">¥</text>
+      <text class="amount">{{order.totalPrice}}</text>
+    </view>
+    
+    <view class="info-list">
+      <view class="info-item">
+        <text class="label">订单编号</text>
+        <text class="value">{{order.orderNo}}</text>
+        <text class="copy" bindtap="copyOrderNo">复制</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医人</text>
+        <text class="value">{{order.patientInfo.name}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医医院</text>
+        <text class="value">{{order.hospitalName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医科室</text>
+        <text class="value">{{order.departmentName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">就医时间</text>
+        <text class="value">{{order.appointmentDate}} {{order.timeSlot}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">陪诊人员</text>
+        <text class="value">{{order.escortName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="service-list">
+    <view class="section-title">服务明细</view>
+    <view class="service-item" wx:for="{{order.services}}" wx:key="id">
+      <text class="service-name">{{item.name}}</text>
+      <text class="service-price">¥{{item.price}}</text>
+    </view>
+    <view class="total">
+      <text>合计</text>
+      <text class="total-price">¥{{order.totalPrice}}</text>
+    </view>
+  </view>
+
+  <view class="payment-methods">
+    <view class="section-title">支付方式</view>
+    <view class="method-item">
+      <image class="method-icon" src="/images/wxpay.png"></image>
+      <text class="method-name">微信支付</text>
+      <icon class="select-icon" type="success" color="#1296db" size="20"></icon>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="price-info">
+      <text>实付金额：</text>
+      <text class="price">¥{{order.totalPrice}}</text>
+    </view>
+    <button class="pay-btn" type="primary" bindtap="startPay">立即支付</button>
+  </view>
+
+  <!-- 支付倒计时 -->
+  <view class="countdown">
+    <text>支付剩余时间：</text>
+    <text class="time">{{countdown}}</text>
+  </view>
+</view> 

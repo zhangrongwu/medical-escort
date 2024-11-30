@@ -1,0 +1,92 @@
+<view class="container">
+  <!-- 问题类型 -->
+  <view class="section">
+    <view class="section-title">问题类型</view>
+    <view class="type-list">
+      <view 
+        class="type-item {{selectedType === index ? 'active' : ''}}"
+        wx:for="{{typeList}}"
+        wx:key="id"
+        bindtap="selectType"
+        data-index="{{index}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 问题描述 -->
+  <view class="section">
+    <view class="section-title">问题描述</view>
+    <view class="textarea-box">
+      <textarea 
+        class="feedback-input"
+        placeholder="请详细描述您遇到的问题..."
+        placeholder-class="placeholder"
+        maxlength="500"
+        value="{{content}}"
+        bindinput="onContentInput"
+      ></textarea>
+      <view class="word-count">{{content.length}}/500</view>
+    </view>
+  </view>
+
+  <!-- 图片上传 -->
+  <view class="section">
+    <view class="section-title">上传图片（选填）</view>
+    <view class="upload-box">
+      <view 
+        class="image-item"
+        wx:for="{{images}}"
+        wx:key="*this"
+      >
+        <image 
+          class="preview-image" 
+          src="{{item}}"
+          mode="aspectFill"
+          bindtap="previewImage"
+          data-url="{{item}}"
+        ></image>
+        <view 
+          class="delete-btn"
+          catchtap="deleteImage"
+          data-index="{{index}}"
+        >×</view>
+      </view>
+      <view 
+        class="upload-btn"
+        bindtap="chooseImage"
+        wx:if="{{images.length < 4}}"
+      >
+        <image class="upload-icon" src="/images/upload.png"></image>
+        <text>添加图片</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="section">
+    <view class="section-title">联系方式（选填）</view>
+    <input 
+      class="contact-input"
+      placeholder="请留下您的手机号，方便我们联系您"
+      type="number"
+      maxlength="11"
+      value="{{contact}}"
+      bindinput="onContactInput"
+    />
+  </view>
+
+  <!-- 提交按钮 -->
+  <button 
+    class="submit-btn {{canSubmit ? '' : 'disabled'}}"
+    bindtap="handleSubmit"
+    disabled="{{!canSubmit}}"
+  >提交反馈</button>
+
+  <!-- 提示 -->
+  <view class="tips">
+    <text>感谢您的反馈，我们会认真处理并尽快回复</text>
+    <text>工作时间：周一至周日 9:00-21:00</text>
+  </view>
+</view> 

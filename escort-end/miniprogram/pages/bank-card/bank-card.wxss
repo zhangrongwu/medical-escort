@@ -1,0 +1,271 @@
+.container {
+  min-height: 100vh;
+  background: #F6F8FC;
+  padding: 30rpx;
+  padding-bottom: calc(180rpx + env(safe-area-inset-bottom));
+}
+
+/* 银行卡列表 */
+.card-list {
+  margin-bottom: 40rpx;
+}
+
+.card-item {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  position: relative;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card-item:active {
+  transform: scale(0.98);
+}
+
+.card-item.default {
+  background: linear-gradient(135deg, #1890FF 0%, #3CA9FF 100%);
+}
+
+.card-item.selected {
+  border: 2rpx solid #1890FF;
+}
+
+.card-main {
+  display: flex;
+  align-items: center;
+}
+
+.bank-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 24rpx;
+  border-radius: 12rpx;
+}
+
+.card-info {
+  flex: 1;
+}
+
+.bank-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.card-type {
+  font-size: 24rpx;
+  color: #666666;
+  margin-bottom: 8rpx;
+}
+
+.card-number {
+  font-size: 28rpx;
+  color: #999999;
+  font-family: DIN;
+}
+
+.card-item.default .bank-name,
+.card-item.default .card-type,
+.card-item.default .card-number {
+  color: #FFFFFF;
+}
+
+/* 默认标记 */
+.default-tag {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  display: flex;
+  align-items: center;
+  padding: 6rpx 16rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 24rpx;
+}
+
+.tag-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+
+.default-tag text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+}
+
+/* 选中标记 */
+.select-tag {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+
+.select-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 操作按钮 */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid rgba(0, 0, 0, 0.05);
+}
+
+.card-item.default .card-actions {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.action-btn {
+  padding: 12rpx 24rpx;
+  border-radius: 24rpx;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  background: #F5F7FA;
+  color: #666666;
+}
+
+.action-btn.delete {
+  color: #FF4D4F;
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.card-item.default .action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+/* 空状态 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 0;
+}
+
+.empty-icon {
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.empty-tips {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 底部按钮 */
+.bottom-btn-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30rpx;
+  padding-bottom: calc(30rpx + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  background: linear-gradient(135deg, #1890FF 0%, #3CA9FF 100%);
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.2);
+}
+
+.btn-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 12rpx;
+}
+
+/* 删除确认弹窗 */
+.confirm-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.confirm-dialog.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dialog-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 560rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  text-align: center;
+}
+
+.dialog-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.dialog-message {
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 40rpx;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 30rpx;
+}
+
+.dialog-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+}
+
+.dialog-btn.cancel {
+  background: #F5F7FA;
+  color: #666666;
+}
+
+.dialog-btn.confirm {
+  background: #FF4D4F;
+  color: #FFFFFF;
+} 

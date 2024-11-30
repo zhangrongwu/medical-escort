@@ -1,0 +1,126 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+  background: #f6f6f6;
+}
+
+.section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+/* 反馈类型 */
+.type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.type-item {
+  padding: 16rpx 30rpx;
+  background: #f8f8f8;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.type-item.active {
+  background: #1296db;
+  color: #fff;
+}
+
+/* 反馈内容 */
+.feedback-input {
+  width: 100%;
+  height: 300rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.word-count {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 图片上传 */
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.image-item {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.image-item image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.delete-icon {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.upload-btn {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx dashed #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.plus {
+  font-size: 60rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.tip {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 联系方式 */
+.contact-input {
+  width: 100%;
+  height: 80rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+} 
