@@ -172,11 +172,15 @@
 }
 
 .order-footer {
-  padding: 20rpx;
-  border-top: 1rpx solid #f5f5f5;
   display: flex;
   justify-content: flex-end;
-  gap: 20rpx;
+  align-items: center;
+  padding: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.order-footer .btn {
+  margin-left: 20rpx;
 }
 
 .btn {
@@ -196,6 +200,15 @@
 .btn-primary {
   color: #fff;
   background: linear-gradient(135deg, #1890ff, #36cfc9);
+}
+
+.btn-progress {
+  background: #1aad19;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  margin-left: 20rpx;
 }
 
 /* 空状态 */

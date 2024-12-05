@@ -283,5 +283,12 @@ Page({
         this.loadOrderDetail()
       }
     })
+  },
+
+  // 查看进度
+  viewProgress: function() {
+    wx.navigateTo({
+      url: `/pages/escort-progress/escort-progress?orderId=${this.data.order._id}`
+    })
   }
 }) 

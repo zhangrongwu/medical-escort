@@ -1,0 +1,46 @@
+<![CDATA[<view class="container">
+  <view class="progress-map">
+    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" scale="14" show-location></map>
+  </view>
+  
+  <view class="progress-info">
+    <view class="status-timeline">
+      <view class="timeline-item {{currentStep >= 1 ? 'active' : ''}}" >
+        <view class="dot"></view>
+        <view class="status-text">接单确认</view>
+        <view class="time-text">{{timeline.confirmTime || '--'}}</view>
+      </view>
+      <view class="timeline-item {{currentStep >= 2 ? 'active' : ''}}">
+        <view class="dot"></view>
+        <view class="status-text">前往约定地点</view>
+        <view class="time-text">{{timeline.startTime || '--'}}</view>
+      </view>
+      <view class="timeline-item {{currentStep >= 3 ? 'active' : ''}}">
+        <view class="dot"></view>
+        <view class="status-text">到达医院</view>
+        <view class="time-text">{{timeline.arriveTime || '--'}}</view>
+      </view>
+      <view class="timeline-item {{currentStep >= 4 ? 'active' : ''}}">
+        <view class="dot"></view>
+        <view class="status-text">就医中</view>
+        <view class="time-text">{{timeline.treatmentTime || '--'}}</view>
+      </view>
+      <view class="timeline-item {{currentStep >= 5 ? 'active' : ''}}">
+        <view class="dot"></view>
+        <view class="status-text">服务完成</view>
+        <view class="time-text">{{timeline.finishTime || '--'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="escort-info">
+    <view class="escort-card">
+      <image class="escort-avatar" src="{{escortInfo.avatar}}"></image>
+      <view class="escort-detail">
+        <view class="escort-name">{{escortInfo.name}}</view>
+        <view class="escort-phone" bindtap="callEscort">{{escortInfo.phone}}</view>
+      </view>
+      <button class="contact-btn" bindtap="contactEscort">联系陪诊员</button>
+    </view>
+  </view>
+</view>]]>

@@ -1,0 +1,69 @@
+<![CDATA[<view class="container">
+  <!-- 医生列表 -->
+  <view class="doctor-list" wx:if="{{!selectedDoctor}}">
+    <view class="search-bar">
+      <input type="text" placeholder="搜索医生姓名或科室" bindinput="onSearch"/>
+    </view>
+    
+    <view class="doctor-card" wx:for="{{doctors}}" wx:key="_id" bindtap="selectDoctor" data-id="{{item._id}}">
+      <image class="doctor-avatar" src="{{item.avatar || '/images/default-avatar.png'}}"/>
+      <view class="doctor-info">
+        <view class="doctor-header">
+          <text class="doctor-name">{{item.name}}</text>
+          <text class="doctor-title">{{item.title}}</text>
+        </view>
+        <view class="doctor-department">{{item.hospital}} - {{item.department}}</view>
+        <view class="doctor-specialty">擅长：{{item.specialty}}</view>
+      </view>
+      <view class="consultation-price">
+        <text class="price">¥{{item.consultationFee}}</text>
+        <text class="unit">/次</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 聊天界面 -->
+  <view class="chat-container" wx:if="{{selectedDoctor}}">
+    <view class="chat-header">
+      <view class="back-button" bindtap="backToList">
+        <text class="cuIcon-back"></text>
+      </view>
+      <view class="doctor-brief">
+        <text class="name">{{selectedDoctor.name}}</text>
+        <text class="title">{{selectedDoctor.title}}</text>
+      </view>
+    </view>
+
+    <scroll-view 
+      class="chat-messages" 
+      scroll-y="true" 
+      scroll-into-view="{{lastMessageId}}"
+      bindscrolltoupper="loadMoreMessages"
+    >
+      <view class="message-list">
+        <view class="message {{item.from === 'doctor' ? 'doctor' : 'patient'}}" 
+          wx:for="{{messages}}" 
+          wx:key="id"
+          id="msg-{{item._id}}"
+        >
+          <image class="avatar" src="{{item.from === 'doctor' ? selectedDoctor.avatar : userInfo.avatarUrl}}"/>
+          <view class="message-content">
+            <text class="message-text">{{item.content}}</text>
+            <text class="message-time">{{item.createTime}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="chat-input">
+      <input 
+        type="text" 
+        placeholder="请输入消息" 
+        value="{{inputMessage}}"
+        bindinput="onInputMessage"
+        bindconfirm="sendMessage"
+      />
+      <button class="send-btn" bindtap="sendMessage">发送</button>
+    </view>
+  </view>
+</view>]]>

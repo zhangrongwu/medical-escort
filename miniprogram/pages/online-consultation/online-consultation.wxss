@@ -1,0 +1,205 @@
+.container {
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+/* 医生列表样式 */
+.doctor-list {
+  padding: 20rpx;
+}
+
+.search-bar {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.search-bar input {
+  background: #f5f5f5;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+
+.doctor-card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.doctor-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 20rpx;
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.doctor-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.doctor-title {
+  font-size: 24rpx;
+  color: #666;
+  background: #f0f0f0;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.doctor-department {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.doctor-specialty {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.consultation-price {
+  text-align: right;
+}
+
+.price {
+  font-size: 36rpx;
+  color: #ff6b6b;
+  font-weight: 500;
+}
+
+.unit {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 聊天界面样式 */
+.chat-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.chat-header {
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.back-button {
+  padding: 20rpx;
+  margin-right: 20rpx;
+}
+
+.doctor-brief {
+  flex: 1;
+}
+
+.doctor-brief .name {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-right: 10rpx;
+}
+
+.doctor-brief .title {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20rpx;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.message.doctor {
+  flex-direction: row;
+}
+
+.message.patient {
+  flex-direction: row-reverse;
+}
+
+.message .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.message-content {
+  max-width: 70%;
+  margin: 0 20rpx;
+}
+
+.message-text {
+  padding: 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  word-break: break-all;
+}
+
+.doctor .message-text {
+  background: #fff;
+  color: #333;
+}
+
+.patient .message-text {
+  background: #07c160;
+  color: #fff;
+}
+
+.message-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+  display: block;
+}
+
+.chat-input {
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+}
+
+.chat-input input {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 15rpx 20rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+}
+
+.send-btn {
+  background: #07c160;
+  color: #fff;
+  padding: 15rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}

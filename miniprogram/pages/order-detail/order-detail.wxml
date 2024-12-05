@@ -96,5 +96,6 @@
     <block wx:elif="{{order.status === 'CANCELLED'}}">
       <button class="btn btn-primary" bindtap="deleteOrder">删除订单</button>
     </block>
+    <button class="progress-btn" wx:if="{{order.status > 0 && order.status < 5}}" bindtap="viewProgress">查看陪诊进度</button>
   </view>
 </view> 

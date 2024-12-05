@@ -1,0 +1,113 @@
+.container {
+  padding: 0;
+  width: 100%;
+}
+
+.progress-map {
+  width: 100%;
+  height: 300px;
+}
+
+.progress-map map {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-info {
+  padding: 20rpx;
+  background: #fff;
+}
+
+.status-timeline {
+  padding: 30rpx 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 20rpx 0 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 10rpx;
+  top: 50rpx;
+  width: 2rpx;
+  height: calc(100% - 30rpx);
+  background: #e0e0e0;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+  margin-right: 20rpx;
+}
+
+.timeline-item.active .dot {
+  background: #07c160;
+}
+
+.status-text {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+}
+
+.time-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.escort-info {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+}
+
+.escort-card {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.escort-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.escort-detail {
+  flex: 1;
+}
+
+.escort-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.escort-phone {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.contact-btn {
+  padding: 15rpx 30rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  margin: 0;
+}

@@ -174,5 +174,73 @@ Page({
     wx.navigateTo({
       url: `/pages/order-detail/order-detail?id=${orderId}`
     })
+  },
+
+  // 更新订单进度
+  updateProgress: function(e) {
+    const orderId = e.currentTarget.dataset.id
+    const currentStatus = e.currentTarget.dataset.status
+    
+    // 显示进度选择器
+    wx.showActionSheet({
+      itemList: ['接单确认', '前往约定地点', '到达医院', '就医中', '服务完成'],
+      success: (res) => {
+        const newStatus = res.tapIndex + 1
+        
+        wx.showLoading({
+          title: '更新中...'
+        })
+        
+        // 获取当前位置
+        wx.getLocation({
+          type: 'gcj02',
+          success: (location) => {
+            // 调用云函数更新进度
+            wx.cloud.callFunction({
+              name: 'updateOrderProgress',
+              data: {
+                orderId: orderId,
+                status: newStatus,
+                location: {
+                  latitude: location.latitude,
+                  longitude: location.longitude
+                }
+              },
+              success: (res) => {
+                if (res.result.success) {
+                  wx.showToast({
+                    title: '更新成功',
+                    icon: 'success'
+                  })
+                  // 刷新订单列表
+                  this.loadOrders()
+                } else {
+                  wx.showToast({
+                    title: res.result.message,
+                    icon: 'none'
+                  })
+                }
+              },
+              fail: (err) => {
+                wx.showToast({
+                  title: '更新失败',
+                  icon: 'none'
+                })
+              },
+              complete: () => {
+                wx.hideLoading()
+              }
+            })
+          },
+          fail: () => {
+            wx.showToast({
+              title: '获取位置失败',
+              icon: 'none'
+            })
+            wx.hideLoading()
+          }
+        })
+      }
+    })
   }
 }) 

@@ -76,7 +76,24 @@
   <!-- 进行中订单列表 -->
   <view class="order-list" wx:if="{{currentTab === 1}}">
     <view class="order-item" wx:for="{{processingOrders}}" wx:key="_id">
-      <!-- 订单内容结构类似上面 -->
+      <view class="order-header">
+        <text class="order-no">订单号：{{item.orderNo}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+      <view class="order-content">
+        <view class="hospital-info">
+          <text class="name">{{item.hospitalName}}</text>
+          <text class="department">{{item.departmentName}}</text>
+        </view>
+        <view class="service-info">
+          <text class="date">{{item.appointmentDate}} {{item.timeSlot}}</text>
+          <text class="services">{{item.serviceNames}}</text>
+        </view>
+        <view class="price-info">
+          <text class="label">服务费：</text>
+          <text class="price">¥{{item.totalPrice}}</text>
+        </view>
+      </view>
       <view class="order-footer">
         <button 
           class="btn btn-default" 
@@ -88,6 +105,12 @@
           bindtap="completeOrder" 
           data-id="{{item._id}}"
         >完成服务</button>
+        <button 
+          class="btn btn-progress" 
+          bindtap="updateProgress" 
+          data-id="{{item._id}}" 
+          data-status="{{item.status}}"
+        >更新进度</button>
       </view>
     </view>
   </view>
@@ -95,7 +118,24 @@
   <!-- 历史订单列表 -->
   <view class="order-list" wx:if="{{currentTab === 2}}">
     <view class="order-item" wx:for="{{historyOrders}}" wx:key="_id">
-      <!-- 订单内容结构类似上面 -->
+      <view class="order-header">
+        <text class="order-no">订单号：{{item.orderNo}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+      <view class="order-content">
+        <view class="hospital-info">
+          <text class="name">{{item.hospitalName}}</text>
+          <text class="department">{{item.departmentName}}</text>
+        </view>
+        <view class="service-info">
+          <text class="date">{{item.appointmentDate}} {{item.timeSlot}}</text>
+          <text class="services">{{item.serviceNames}}</text>
+        </view>
+        <view class="price-info">
+          <text class="label">服务费：</text>
+          <text class="price">¥{{item.totalPrice}}</text>
+        </view>
+      </view>
       <view class="order-footer">
         <button 
           class="btn btn-default" 
